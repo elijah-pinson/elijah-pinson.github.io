@@ -4,10 +4,12 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700|Maven+Pro' rel='stylesheet' type='text/css'>
 	<title>berwin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href = "css/style.css" rel = "stylesheet">
+	<link href = "css/bootstrap.css" rel = "stylesheet">
+	<script src="js/bootstrap.js"></script>
+	
 	<link rel="stylesheet" href="css/grid.css">
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/menuscript.js"></script>
+	
 	<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,48 +23,58 @@
 </head>
 
 <body>
-<li><h1>berwin</h1></li>
-<div class="navigation">
-	<ul class="nav">
-	<li><a href="#">intro</a></li>
-	<li><a href="#">gallery</a></li>
-	<li>
-		<a href="#">social networks</a>
-		<ul>
-			<li><a href="#">Facebook</a></li>
-			<li><a href="#">LinkedIn</a></li>
-			<li><a href="#">Google+</a></li>
-		</ul>
-	</li>
-	</ul>
+
+<div class="container">
+
+<h1>berwin</h1>
+
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+				<li class="divider"></li>
+				<li><a href="#">One more separated link</a></li>
+			  </ul>
+			</li>
+		  </ul>
+	</nav>
+
+
+
+	<hr>
+	<h2>intro</h2>
+	Hello! I'm <b>Berwin</b>. Listed below are a few tid bits about myself <br>
+	You can contact me at <a href="mailto:bxie6@illinois.edu">bxie6@illinois.edu</a> or friend me on <a href="https://www.facebook.com/berwin.xie">Facebook</a>
+
+	<hr>
+	<h2>about me</h2>
+	<table>
+		<tr>
+			<td><img src="http://www.idtg.illinois.edu/images/portrait-UIUC.png" height="150px"/></td>
+			<td>
+				<ul>
+					<li><h3>University of Illinois at Urbana-Champaign</h3></li>
+					<li>Bachelors of Science in Computer Science (2013-2017)</li>
+				</ul>
+			</th>
+		</tr>
+	</table>
+	<br><br>
+
+	<h2>projects</h2>
+	<p></p>
+	<p></p>
+	<hr>
+	<h3>under construction</h3>
 </div>
-
-
-<hr>
-<h2>intro</h2>
-Hello! I'm <b>Berwin</b>. Listed below are a few tid bits about myself <br>
-You can contact me at <a href="mailto:bxie6@illinois.edu">bxie6@illinois.edu</a> or friend me on <a href="https://www.facebook.com/berwin.xie">Facebook</a>
-
-<hr>
-<h2>about me</h2>
-<table>
-	<tr>
-		<td><img src="http://www.idtg.illinois.edu/images/portrait-UIUC.png" height="150px"/></td>
-		<td>
-			<ul>
-				<li><h3>University of Illinois at Urbana-Champaign</h3></li>
-				<li>Bachelors of Science in Computer Science (2013-2017)</li>
-			</ul>
-		</th>
-	</tr>
-</table>
-<br><br>
-
-<h2>projects</h2>
-<p></p>
-<p></p>
-<hr>
-<h3>under construction</h3>
-
 </body>
 </html>
