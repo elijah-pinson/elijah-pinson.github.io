@@ -73,7 +73,7 @@ td, tr{
 .nav li a {
 	background: #333;
 	color: #fff;
-	display: block;
+	display: inline;
 	padding: 7px 8px;
 	text-decoration: none;
 	border-top: 1px solid #069;
