@@ -10,12 +10,14 @@
 }
 
 h1, h2, h3{
+	text-decoration: none;
     font-family: 'Maven Pro', sans-serif;
 	text-align: left;
 }
 
 
 body{
+	text-decoration: none;
     background: #ffffff; /* Background color! */
     font-size: 16px;
     line-height: 22px; /* line-height specifies how much vertical space each line takes up. Space it out, make it airy! */
@@ -56,5 +58,7 @@ a{
 td, tr{
 	vertical-align: top;
 }
+
+
 
 
