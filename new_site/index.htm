@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>berwin</title>
+        <link rel="stylesheet" type="text/css" href="css/circle-menu.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="jQuery.circleMenu.js"></script>
+        <script>
+            $(function(){
+                $('#menu2').circleMenu({
+                    direction:'bottom', 
+                    trigger:'hover',
+                    item_diameter:65,
+                    middle_diameter:130,
+                    circle_radius:170
+                })
+                
+            });
+        </script>
+
+    </head>
+    <body>       
+           <div id="ex-full-clickopen">
+               <ul class="menu" id="menu2">
+                   <li><a href="#"></a></li>
+                   <li><a href="#" alt="Item 1" title="Item 1">social</a></li>
+                   <li><a href="#" alt="Item 2" title="Item 2">about</a></li>
+                   <li><a href="#" alt="Item 3" title="Item 3">projects</a></li>
+               </ul>
+           </div>            
+    </body>
+</html>
