@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>berwin</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/circle-menu.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -13,7 +14,7 @@
           direction:'bottom', 
           trigger:'hover',
           item_diameter:65,
-          middle_diameter:130,
+          middle_diameter:200,
           circle_radius:170
           })            
         });
@@ -27,7 +28,7 @@
         );
 
         $(".menu li:first-child").hover(function(){
-          $(this).fadeTo(400, .8);},
+          $(this).fadeTo(400, .6);},
           function(){
           $(this).fadeTo(500, 1);
           }

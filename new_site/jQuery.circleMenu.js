@@ -251,7 +251,9 @@
             'z-index': 1,
             'opacity': ''
         });
+        vendorPrefixes($items, 'border-radius', self.options.item_diameter+'px');
         self.element.children('li:first-child').css({
+            'border-radius': self.options.middle_diameter/2 + 'px',
         	'text-align': 'center',
         	'z-index': 1000-self.options.depth,
         	'width': self.options.middle_diameter+'px',
@@ -265,7 +267,7 @@
             top:0,
             left:0
         });
-        vendorPrefixes($items, 'border-radius', self.options.item_diameter+'px');
+        
         vendorPrefixes(self.menu_items, 'transform', 'scale(.5)');
         setTimeout(function(){
             vendorPrefixes($items, 'transition', 'all '+self.options.speed+'ms '+self.options.transition_function);
