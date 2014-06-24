@@ -1,12 +1,12 @@
 #bg {
 	font-family: 'Roboto', sans-serif;
-	font-size: 500%;
-	color:#e0e0e0;
+	font-size: 1000%;
+	color:#d0d0d0;
 	text-shadow: 2px 2px #f0f0f0;
 	position: absolute;
-	top: 0;
-	left: 46%;
-	margin-left: -85px;
+	top: 100px;
+	left: 45%;
+	margin-left: -200px;
 	bottom: 0;
 	right: 0;
 	z-index: 0;
