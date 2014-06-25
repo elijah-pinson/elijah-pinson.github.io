@@ -15,6 +15,33 @@
 	overflow: hidden;
 }
 
+.vertical-text{
+	color:#a0a0a0;
+	position:absolute;
+	left: 45%;
+	top: 100px;
+	margin-left: -320px;
+    margin-right: auto;
+	font-family: 'Roboto', sans-serif;
+	font-size: 150%;
+
+	-webkit-transform: rotate(-90deg);
+  	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+
+	/* also accepts left, right, top, bottom coordinates; not required, but a good idea for 	styling */
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	/* Should be unset in IE9+ I think. */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 .left-text {
 	position: absolute;
 	font-family: 'Roboto', sans-serif;
@@ -27,8 +54,8 @@
 .right-text {
 	position: absolute;
 	font-family: 'Roboto', sans-serif;
-	right:45%;
-	margin-right: -190px;
+	left:45%;
+	margin-left: 130px;
 	top: 200px;
 	text-align: right;
 }
@@ -48,7 +75,7 @@
 	line-height: 30px;
 	position: relative;
 	margin-bottom: 15px;
-	top: 75px;
+	top: 55px;
 	width: 32px;
     height: 32px;
     border-radius: 50%;
