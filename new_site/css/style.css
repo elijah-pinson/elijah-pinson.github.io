@@ -1,4 +1,5 @@
 #bg {
+	letter-spacing: 5px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1000%;
 	color:#d0d0d0;
@@ -41,6 +42,7 @@
 }
 
 .left-text {
+	line-height: 165%;
 	position: absolute;
 	font-family: 'Roboto', sans-serif;
 	left:45%;
@@ -50,10 +52,11 @@
 }
 
 .right-text {
+	line-height: 165%;
 	position: absolute;
 	font-family: 'Roboto', sans-serif;
 	left:45%;
-	margin-left: 100px;
+	margin-left: 130px;
 	top: 200px;
 	text-align: right;
 }
