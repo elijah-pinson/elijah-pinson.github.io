@@ -1,5 +1,3 @@
-
-
 #bg {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1000%;
@@ -90,6 +88,7 @@
 
 .round-button a{
 	text-decoration: none;
+	color: white;
 }
 	
 
