@@ -27,7 +27,7 @@
 .right-text {
 	position: absolute;
 	font-family: 'Roboto', sans-serif;
-	right:45%;
+	right:-45%;
 	margin-right: -190px;
 	top: 200px;
 	text-align: right;

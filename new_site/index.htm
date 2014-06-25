@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="css/circle-menu.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="jQuery.circleMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" />
+    
+    <script src="js/jQuery.circleMenu.js"></script>
     <script>
       $(function(){
         $('#menu2').circleMenu({
@@ -15,7 +17,7 @@
           trigger:'hover',
           item_diameter:65,
           middle_diameter:200,
-          circle_radius:170
+          circle_radius:200
           })            
         });
 
@@ -33,6 +35,13 @@
           $(this).fadeTo(500, 1);
           }
         );
+        
+        $(".round-button").hover(function(){
+          $(this).fadeTo(400, .6);},
+          function(){
+          $(this).fadeTo(500, 1);
+          }
+        );
 
       });
     </script>
@@ -40,16 +49,27 @@
     </head>
 
     <body>
-      <div id="bg">berwin</div> 
-
+		<div id="bg">berwin</div>
+		 
+		<div class="round-button"><a href="https://github.com/berwin7996" target="_blank"><i class="fa fa-github"></i></a></div>
+		<div class="round-button"><a href="http://lnkd.in/bEpZXMv" target="_blank"><i class="fa fa-linkedin"></i></a></div>
+		
         <div id="ex-full-clickopen">
-          <ul class="menu" id="menu2">
-            <li><a href="#"></a></li>
-            <li><a href="#" alt="Item 1" title="Item 1">social</a></li>
-            <li><a href="#" alt="Item 2" title="Item 2">about</a></li>
-            <li><a href="#" alt="Item 3" title="Item 3">projects</a></li>
-          </ul>
-        </div>            
+			<ul class="menu" id="menu2">
+		        <li><a href="#"></a></li>
+		        <li><a href="#" alt="Item 1" title="Item 1">social</a></li>
+		        <li><a href="#" alt="Item 2" title="Item 2">about</a></li>
+		        <li><a href="#" alt="Item 3" title="Item 3">projects</a></li>
+          	</ul>
+        </div>  
+    	        
+    	<div class="left-text">
+    	hello! welcome! my<br> name is Berwin<br> and I'm currently<br>a sophomore at<br>the University of<br>Illinois at Urbana<br>-Champaign stud-<br>ying computer scie<br>-nce
+    	</div>  
+    	
+    	<div class="right-text">
+    	hello! welcome! my<br> name is Berwin<br> and I'm currently<br>a sophomore at<br>the University of<br>Illinois at Urbana<br>-Champaign stud-<br>ying computer scie<br>-nce
+    	</div>  
     </body>
 
 
