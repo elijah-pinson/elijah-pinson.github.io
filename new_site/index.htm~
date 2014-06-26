@@ -6,9 +6,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/circle-menu.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/reveal.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" />
-    
+    <script src="js/jquery.reveal.js"></script>
     <script src="js/jQuery.circleMenu.js"></script>
     <script>
       $(function(){
@@ -17,7 +18,7 @@
           trigger:'hover',
           item_diameter:65,
           middle_diameter:200,
-          circle_radius:200
+          circle_radius:225
           })            
         });
 
@@ -42,7 +43,6 @@
           $(this).fadeTo(500, 1);
           }
         );
-
       });
     </script>
 
@@ -58,21 +58,38 @@
         <div id="ex-full-clickopen">
 			<ul class="menu" id="menu2">
 		        <li><a href="#"></a></li>
-		        <li><a href="#" alt="Item 1" title="Item 1">social</a></li>
-		        <li><a href="#" alt="Item 2" title="Item 2">about</a></li>
-		        <li><a href="#" alt="Item 3" title="Item 3">projects</a></li>
+		        <li><a href="#" data-reveal-id="myModal" data-animation="fade">social</a></li>
+		        <li><a href="#" data-reveal-id="resumeModal" data-animation="fade">resume</a></li>
+		        <li><a href="#" data-reveal-id="projectsModal" data-animation="fade">projects</a></li>
           	</ul>
         </div>  
     	        
     	<div class="left-text">
-    	hello! welcome! my<br> name is Berwin<br> and I'm currently<br>a sophomore at<br>the University of<br>Illinois at Urbana<br>-Champaign for<br>Computer Science<br>
+    	Hello! Welcome! My<br> name is Berwin<br> and I'm currently<br>a sophomore at<br>the <a href="http://illinois.edu" target="_blank">University of<br>Illinois at Urbana<br>-Champaign</a> for<br><a href="http://cs.illinois.edu" target="_blank">Computer Science</a>.<br>
     	</div>  
     	
     	<div class="right-text">
-    	I love the outdoors,<br>making music of<br>all different forms,<br>running, biking,<br>and learning<br>about the most<br>random of things.<br>You can reach me<br> at my <a href="mailto:berwin7996@gmail.com">email</a>
+    	I love the outdoors,<br>making music of<br>all different forms,<br>running, biking,<br>and learning<br>about the most<br>random of things.<br><i>You can reach me at<br><a href="mailto:berwin7996@gmail.com">berwin7996@gmail.com</a></i>
     	</div>  
     </body>
-
+	
+	<div id="myModal" class="reveal-modal">
+		<h1>Reveal Modal Goodness</h1>
+		<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<div id="resumeModal" class="reveal-modal">
+		<h1>Resume</h1>
+		<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<div id="projectsModal" class="reveal-modal">
+		<h1>Projects</h1>
+		<p>projects projects projects projects projects </p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
 
     <div class="hidden">
       <script type="text/javascript">

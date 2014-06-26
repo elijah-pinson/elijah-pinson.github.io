@@ -6,9 +6,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/circle-menu.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/reveal.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" />
-    
+    <script src="js/jquery.reveal.js"></script>
     <script src="js/jQuery.circleMenu.js"></script>
     <script>
       $(function(){
@@ -42,7 +43,6 @@
           $(this).fadeTo(500, 1);
           }
         );
-
       });
     </script>
 
@@ -58,9 +58,14 @@
         <div id="ex-full-clickopen">
 			<ul class="menu" id="menu2">
 		        <li><a href="#"></a></li>
-		        <li><a href="#" alt="Item 1" title="Item 1">social</a></li>
-		        <li><a href="#" alt="Item 2" title="Item 2">about</a></li>
-		        <li><a href="#" alt="Item 3" title="Item 3">projects</a></li>
+		        <!--
+		        <li><a href="#" data-reveal-id="myModal" data-animation="fade">social</a></li>
+		        <li><a href="#" data-reveal-id="resumeModal" data-animation="fade">resume</a></li>
+		        <li><a href="#" data-reveal-id="projectsModal" data-animation="fade">projects</a></li>
+		        -->
+		        <li data-reveal-id="myModal" data-animation="fade">social</li>
+		        <li data-reveal-id="resumeModal" data-animation="fade">resume</li>
+		        <li data-reveal-id="projectsModal" data-animation="fade">projects</li>
           	</ul>
         </div>  
     	        
@@ -72,7 +77,24 @@
     	I love the outdoors,<br>making music of<br>all different forms,<br>running, biking,<br>and learning<br>about the most<br>random of things.<br><i>You can reach me at<br><a href="mailto:berwin7996@gmail.com">berwin7996@gmail.com</a></i>
     	</div>  
     </body>
-
+	
+	<div id="myModal" class="reveal-modal">
+		<h1>Reveal Modal Goodness</h1>
+		<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<div id="resumeModal" class="reveal-modal">
+		<h1>Resume</h1>
+		<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<div id="projectsModal" class="reveal-modal">
+		<h1>Projects</h1>
+		<p>projects projects projects projects projects </p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
 
     <div class="hidden">
       <script type="text/javascript">
