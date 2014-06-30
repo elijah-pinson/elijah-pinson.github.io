@@ -14,6 +14,17 @@
 	overflow: hidden;
 }
 
+#footer {
+	font-size: 75%;
+	font-family: 'Roboto', sans-serif;
+	position: absolute;
+	text-align: center;
+	bottom:0;
+	width:100%;
+	height:40px;   /* Height of the footer */
+	background:#fbfbfb;
+}
+
 #hover_button{
 	font-size: 50%;
 	margin-top:180px;
