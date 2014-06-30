@@ -11,6 +11,23 @@
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" />
     <script src="js/jquery.reveal.js"></script>
     <script src="js/jQuery.circleMenu.js"></script>
+    <script src="js/pdfobject.js"></script>
+
+    <script type='text/javascript'>
+    window.onload = function(){
+    var myPDF = new PDFObject({ 
+         url: 'assets/resume_6_2014.pdf', 
+         pdfOpenParams: { 
+              view: 'FitW', 
+              scrollbars: '0', 
+              toolbar: '0', 
+              statusbar: '0', 
+              navpanes: '0' }
+          }).embed('pdf1'); 
+    };
+    </script>
+
+
     <script>
       $(function(){
         $('#menu2').circleMenu({
@@ -43,6 +60,12 @@
           $(this).fadeTo(500, 1);
           }
         );
+
+        $(".menu li#blogButton").click(function(){
+          window.open('http://berwinxie.wordpress.com/', '_blank');
+          }
+        );
+
       });
     </script>
 
@@ -57,13 +80,13 @@
 		<div class="vertical-text">my links</div> 
         <div id="ex-full-clickopen">
 			<ul class="menu" id="menu2">
-		        <li><a href="#"></a></li>
+		        <li><div id="hover_button">hover over me</div></li>
 		        <!--
 		        <li><a href="#" data-reveal-id="myModal" data-animation="fade">social</a></li>
 		        <li><a href="#" data-reveal-id="resumeModal" data-animation="fade">resume</a></li>
 		        <li><a href="#" data-reveal-id="projectsModal" data-animation="fade">projects</a></li>
 		        -->
-		        <li data-reveal-id="myModal" data-animation="fade">social</li>
+		        <li id="blogButton">blog</li>
 		        <li data-reveal-id="resumeModal" data-animation="fade">resume</li>
 		        <li data-reveal-id="projectsModal" data-animation="fade">projects</li>
           	</ul>
@@ -76,6 +99,8 @@
     	<div class="right-text">
     	I love the outdoors,<br>making music of<br>all different forms,<br>running, biking,<br>and learning<br>about the most<br>random of things.<br><i>You can reach me at<br><a href="mailto:berwin7996@gmail.com">berwin7996@gmail.com</a></i>
     	</div>  
+
+
     </body>
 	
 	<div id="myModal" class="reveal-modal">
@@ -86,13 +111,27 @@
 	
 	<div id="resumeModal" class="reveal-modal">
 		<h1>Resume</h1>
-		<p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+    <div id="pdf1" style="width:100%; height:700px;"></div>
+    <!--
+		<object><embed src="assets/resume_6_2014.pdf" type='application/pdf' style="width:100%; height:700px;" frameborder="0"></embed></object>
 		<a class="close-reveal-modal">&#215;</a>
+  -->
 	</div>
 	
 	<div id="projectsModal" class="reveal-modal">
 		<h1>Projects</h1>
-		<p>projects projects projects projects projects </p>
+		<h3>Glyma Peptide Search for cysteine biosynthesis I</h3>
+    <a href="glyma_website/index.html" class="btn btn-large btn-success" target='_blank'>Go!</a>
+  <hr>
+  <h3>EOH 2014</h3>
+    WIP
+  <hr>
+  <h3>Mathematica Music</h3>
+    <a href='http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/' target='_blank'><img src="http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/HTMLImages/index.en/popup_1.jpg"></a><br>
+    <a href='http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/' target='_blank'>Musical Variables: Modes and Instruments</a> from the <a class='demonstrationHyperlink' href='http://demonstrations.wolfram.com/' target='_blank'>Wolfram Demonstrations Project</a> by Berwin Xie<br />
+    
+  <hr>
+  <h6>under construction</h6>
 		<a class="close-reveal-modal">&#215;</a>
 	</div>
 
