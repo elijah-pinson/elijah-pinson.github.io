@@ -124,3 +124,9 @@
     height: auto;
 }
 
+.bottom-bar{
+	position: relative;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 30px;
+}
