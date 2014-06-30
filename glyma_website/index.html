@@ -33,11 +33,31 @@
   	<script type="text/javascript" src="data.js"></script>
   	<script type="text/javascript" src="map.js"></script>
   	
+  	<style>
+	  .ui-autocomplete {
+		max-height: 300px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+	  }
+	  /* IE 6 doesn't support max-height
+	   * we use height instead, but this forces the menu to always be this tall
+	   */
+	  * html .ui-autocomplete {
+		height: 100px;
+	  }
+	</style>
+  	
+  	<script type="text/javascript">
+  		$('.btn-group').button();
+  	</script>
   	<script>
 		
-  		var availableTags = ["Glyma16g03080.1", "Glyma02g46870.1", "Glyma14g01840.1", "Glyma16g07350.1", "Glyma18g32513.1", "Glyma18g40780.1", "Glyma10g35700.1", "Glyma10g35700.2", "Glyma05g11630.2", "Glyma19g07240.3", "Glyma08g43940.1", "Glyma18g08910.1", "Glyma16g22630.4", "Glyma07g06480.1", "Glyma11g08931.1", "Glyma17g31491.1", "Glyma05g11630.3", "Glyma16g22630.2", "Glyma16g22630.3", "Glyma01g36460.2", "Glyma05g24110.1", "Glyma02g04770.1", "Glyma02g04770.2", "Glyma19g07240.4", "Glyma17g23900.1", "Glyma03g40490.1", "Glyma03g40490.2", "Glyma02g15640.1", "Glyma10g30140.6", "Glyma19g43150.1", "Glyma08g17555.1", "Glyma10g30130.7", "Glyma20g37280.2", "Glyma15g41600.2", "Glyma15g41600.1", "Glyma02g46950.2", "Glyma20g28631.2", "Glyma11g00810.5", "Glyma11g00810.4", "Glyma11g00810.1", "Glyma11g00810.2", "Glyma19g29741.1", "Glyma20g37290.2", "Glyma01g44833.1", "Glyma18g46920.1", "Glyma09g39390.1", "Glyma10g30130.1", "Glyma10g30130.4", "Glyma10g30130.5", "Glyma10g30130.6", "Glyma20g37280.3", "Glyma20g37280.1", "Glyma20g37280.4", "Glyma20g37280.5", "Glyma14g01780.2", "Glyma14g01780.1", "Glyma20g28631.1", "Glyma07g32790.2", "Glyma10g30140.1", "Glyma10g30140.7", "Glyma10g30140.9", "Glyma10g30140.8", "Glyma03g00900.2", "Glyma07g32790.1", "Glyma10g39320.1"];
+
+		
+  		var availableTags = ["Glyma16g03080.1", "Glyma02g46870.1", "Glyma14g01840.1", "Glyma16g07350.1", "Glyma18g32513.1", "Glyma18g40780.1", "Glyma10g35700.1", "Glyma10g35700.2", "Glyma05g11630.2", "Glyma19g07240.3", "Glyma08g43940.1", "Glyma18g08910.1", "Glyma16g22630.4", "Glyma07g06480.1", "Glyma11g08931.1", "Glyma17g31491.1", "Glyma05g11630.3", "Glyma16g22630.2", "Glyma16g22630.3", "Glyma01g36460.2", "Glyma05g24110.1", "Glyma02g04770.1", "Glyma02g04770.2", "Glyma19g07240.4", "Glyma17g23900.1", "Glyma03g40490.1", "Glyma03g40490.2", "Glyma02g15640.1", "Glyma10g30140.6", "Glyma19g43150.1", "Glyma08g17555.1", "Glyma10g30130.7", "Glyma20g37280.2", "Glyma15g41600.2", "Glyma15g41600.1", "Glyma02g46950.2", "Glyma20g28631.2", "Glyma11g00810.5", "Glyma11g00810.4", "Glyma11g00810.1", "Glyma11g00810.2", "Glyma19g29741.1", "Glyma20g37290.2", "Glyma01g44833.1", "Glyma18g46920.1", "Glyma09g39390.1", "Glyma10g30130.1", "Glyma10g30130.4", "Glyma10g30130.5", "Glyma10g30130.6", "Glyma20g37280.3", "Glyma20g37280.1", "Glyma20g37280.4", "Glyma20g37280.5", "Glyma14g01780.2", "Glyma14g01780.1", "Glyma20g28631.1", "Glyma07g32790.2", "Glyma10g30140.1", "Glyma10g30140.7", "Glyma10g30140.9", "Glyma10g30140.8", "Glyma03g00900.2", "Glyma07g32790.1", "Glyma10g39320.1", "Glyma16g03080", "Glyma02g46870", "Glyma14g01840", "Glyma16g07350", "", "Glyma18g40780", "Glyma10g35700", "Glyma10g35700", "Glyma05g11630", "Glyma19g07240", "Glyma08g43940", "Glyma18g08910", "Glyma16g22630", "Glyma07g06480", "Glyma11g08930", "Glyma17g31460", "Glyma05g11630", "Glyma16g22630", "Glyma16g22630", "Glyma01g36460", "Glyma05g24110", "Glyma02g04770", "Glyma02g04770", "Glyma19g07240", "Glyma17g23900", "Glyma03g40490", "Glyma03g40490", "Glyma02g15640", "Glyma10g30140", "Glyma19g43150", "Glyma08g17550", "Glyma10g30130", "Glyma20g37280", "Glyma15g41600", "Glyma15g41600", "Glyma02g46950", "Glyma20g28630", "Glyma11g00810", "Glyma11g00810", "Glyma11g00810", "Glyma11g00810", "Glyma19g29740", "Glyma20g37290", "Glyma01g44840", "Glyma18g46920", "Glyma09g39390", "Glyma10g30130", "Glyma10g30130", "Glyma10g30130", "Glyma10g30130", "Glyma20g37280", "Glyma20g37280", "Glyma20g37280", "Glyma20g37280", "Glyma14g01780", "Glyma14g01780", "Glyma20g28630", "Glyma07g32790", "Glyma10g30140", "Glyma10g30140", "Glyma10g30140", "Glyma10g30140", "Glyma03g00900", "Glyma07g32790", "Glyma10g39320"];
   		
-  	
+  		
 	  $(function() {
 		$("#tags").autocomplete({
 		  source: availableTags
@@ -45,16 +65,59 @@
 	  });
 	  
 	  // wait for the DOM to be loaded 
-		$(document).ready(function() {						
+		$(document).ready(function() {		
+		
+		//radio buttons	
+		$(".btn-group > .btn").click(function(){
+			$(".btn-group > .btn").removeClass("active");
+			$(this).addClass("active");
+		});
+		
+		
+		
+				
 		    $( "form" ).submit(function( event ) {	
+		      //$("#radio_buttons .active").data("value");
+		    
 		      var found = $.inArray($("input").val(), availableTags);
 		      if(found != -1){
-		      	thehtml = "<table class=\"table\">"
-		      	thehtml = thehtml + "<td bgcolor=\"#CCFFCC\" style=\"padding:10px\"> Gmax 189: <a href=\"http://soykb.org/gene_card.php?gene=" + availableTags[found] + "\">" + availableTags[found] + "</a>"
-		      	thehtml = thehtml + "<br><br>Gmax 109: <a href=\"http://soykb.org/gene_card_v1.php?gene=" + get109(availableTags[found]) + "\">" + get109(availableTags[found]) + "</a></td>"
-		      	thehtml = thehtml + "<td style=\"padding:10px\">" + dict[availableTags[found]] + "</table>"
-		      	$( "span" ).html(thehtml).show();
-				event.preventDefault();
+		      
+		      	//searchign through 189
+		      	//if(availableTags[found].indexOf('.') != -1){
+		      	if( $("#radio_buttons .active").data("value") == 1){ 
+				  	thehtml = "<table class=\"table\">"
+				  	
+				  	thehtml = thehtml + "<tr><td bgcolor=\"#CCFFCC\">Gmax 109: <a href=\"http://soykb.org/gene_card_v1.php?gene=" + get109(availableTags[found]) + "\">" + get109(availableTags[found]) + "</a></td>"				  	
+				  	thehtml = thehtml + "<td style=\"padding:10px\">" + dict109[get109(availableTags[found])] + "</td></tr>"			  	
+				  	
+				  					  	
+				  	thehtml = thehtml + "<tr><td bgcolor=\"#CCFFCC\" style=\"padding:10px\"> Gmax 189: <a href=\"http://soykb.org/gene_card.php?gene=" + availableTags[found] + "\">" + availableTags[found] + "</a></td>"			  	
+				  	thehtml = thehtml + "<td style=\"padding:10px\">" + dict[availableTags[found]] + "</td></tr>"
+				  	
+				  
+				  	thehtml = thehtml + "</tr></table>"
+				  	
+				  	$( "span" ).html(thehtml).show();
+				  }
+				  //searching through 109 names -->will need to map to 189 versions
+				  //NEED DICT DATA FOR 109
+			    else{
+			    	var temp = get189(availableTags[found]) + '.1'
+			    	
+			    	thehtml = "<table class=\"table\">"
+			    	
+			    	thehtml = thehtml + "<tr><td bgcolor=\"#CCFFCC\">Gmax 109: <a href=\"http://soykb.org/gene_card_v1.php?gene=" + availableTags[found] + "\">" + availableTags[found] + "</a></td>"				  	
+				  	thehtml = thehtml + "<td style=\"padding:10px\">" + dict109[availableTags[found]] + "</td></tr>"			  	
+				  	
+				  	thehtml = thehtml + "<tr><td bgcolor=\"#CCFFCC\" style=\"padding:10px\"> Gmax 189: <a href=\"http://soykb.org/gene_card.php?gene=" + temp + "\">" + temp + "</a></td>"				  				  			
+				  	thehtml = thehtml + "<td style=\"padding:10px\">" + dict[temp] + "</td></tr>"
+				  	
+				  	thehtml = thehtml + "</tr></table>"
+				  	
+				  	$( "span" ).html(thehtml).show();
+			    }	  
+				  
+					event.preventDefault();
 		      }
 		      
 		      else{	 
@@ -74,9 +137,18 @@
 
       <form id="myForm" class="form-signin" role="form">
         <h2 class="form-signin-heading">Glyma Peptide Search for cysteine biosynthesis I</h2>
-        <input id="tags" class="form-control" placeholder="Glyma Name (Gmax_189)" required autofocus>
-	<br>
+        <input id="tags" class="form-control" placeholder="Glyma Name... ex: Glyma16g03080.1" required autofocus>
+        <br>
+        Select model version
+		<div class="btn-group" data-toggle="buttons-radio" id="radio_buttons"> 
+		  <button type="button" class="btn btn-default active" data-value="0" id="button1">Gmax 109</button>
+		  <button type="button" class="btn btn-default" data-value="1" id="button2">Gmax 189</button>
+		</div>
+		<br><br>
+		Currently Gmax 109 searches don't include splices due to lack of information for mapping one to another.
+		<br><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+    
         
       </form>
      	<span></span>
