@@ -8,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/reveal.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../font-awesome-4.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.1.0/css/font-awesome.min.css" />
     <script src="js/jquery.reveal.js"></script>
     <script src="js/jQuery.circleMenu.js"></script>
     <script src="js/pdfobject.js"></script>
+    <script src="js/processing.js"></script>
 
     <script type='text/javascript'>
     window.onload = function(){
@@ -123,13 +124,16 @@
 		<h3>Glyma Peptide Search for cysteine biosynthesis I</h3>
     <a href="glyma_website/index.html" class="btn btn-large btn-success" target='_blank'>Go!</a>
   <hr>
-  <h3>EOH 2014</h3>
-    WIP
+  <h3>Processing Piano</h3>
+    <canvas data-processing-sources="assets/circles.pde"></canvas>
   <hr>
   <h3>Mathematica Music</h3>
     <a href='http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/' target='_blank'><img src="http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/HTMLImages/index.en/popup_1.jpg"></a><br>
     <a href='http://demonstrations.wolfram.com/MusicalVariablesModesAndInstruments/' target='_blank'>Musical Variables: Modes and Instruments</a> from the <a class='demonstrationHyperlink' href='http://demonstrations.wolfram.com/' target='_blank'>Wolfram Demonstrations Project</a> by Berwin Xie<br />
-    
+   
+  <hr>
+  <h3>EOH 2014</h3>
+    WIP
   <hr>
   <h6>under construction</h6>
 		<a class="close-reveal-modal">&#215;</a>
