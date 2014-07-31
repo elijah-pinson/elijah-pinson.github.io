@@ -37,7 +37,7 @@ var main_state = {
     },
     
     settext: function() {
-    	this.instructions = this.add.text(250, 500, 'left/right arrows to rotate', { font: '20px monospace', fill: '#fff', align: 'center' });
+    	this.instructions = this.add.text(250, 500, 'left/right arrows to rotate', {fill: '#fff', align: 'center' });
     	this.instructions.anchor.setTo(0.5, 0.5);
     },
 
