@@ -6,6 +6,8 @@ var game = new Phaser.Game(500, 600, Phaser.AUTO, 'game_div');
 var main_state = {
     preload: function() {
     
+    this.leftvel = 0;
+    this.rightvel = 0;
     this.leftpress = false;
     this.rightpress = false;
     
@@ -30,10 +32,15 @@ var main_state = {
 
     update: function() {
         // This is where we will spend the most of our time. This function is called 60 times per second to update the game.
-    	if(this.leftpress)
-    		this.hello_sprite.angle -= 1;
-    	if(this.rightpress)
-    		this.hello_sprite.angle += 1;
+    	if(this.leftpress) {
+    		this.leftvel += .15;
+    		this.hello_sprite.angle -= this.leftvel;
+    	}
+    		
+    	if(this.rightpress) {
+    		this.rightvel += .15;
+    		this.hello_sprite.angle += this.rightvel;
+    	}
     },
     
     settext: function() {
@@ -50,10 +57,12 @@ var main_state = {
     },
     
     leftturnoff: function() {
+		this.leftvel = 0;
 		this.leftpress = false;
     },
 
     rightturnoff: function() {
+    	this.rightvel = 0;
     	this.rightpress = false;
     }
 
