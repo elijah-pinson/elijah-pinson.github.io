@@ -33,14 +33,28 @@ var main_state = {
     update: function() {
         // This is where we will spend the most of our time. This function is called 60 times per second to update the game.
     	if(this.leftpress) {
-    		this.leftvel += .15;
-    		this.hello_sprite.angle -= this.leftvel;
+    		this.leftvel += .15;   		
     	}
+    	else {
+    		if (this.leftvel > 0)
+    			this.leftvel -= .15;
+    		if (this.leftvel < 0)
+    			this.leftvel = 0;
+    	}
+    	
+    	this.hello_sprite.angle -= this.leftvel;
     		
     	if(this.rightpress) {
-    		this.rightvel += .15;
-    		this.hello_sprite.angle += this.rightvel;
+    		this.rightvel += .15;   		
     	}
+    	else {
+    		if (this.rightvel > 0)
+    			this.rightvel -= .15;
+    		if (this.rightvel < 0)
+    			this.rightvel = 0;
+    	}
+    	
+    	this.hello_sprite.angle += this.rightvel;
     },
     
     settext: function() {
@@ -57,12 +71,12 @@ var main_state = {
     },
     
     leftturnoff: function() {
-		this.leftvel = 0;
+		//this.leftvel = 0;
 		this.leftpress = false;
     },
 
     rightturnoff: function() {
-    	this.rightvel = 0;
+    	//this.rightvel = 0;
     	this.rightpress = false;
     }
 
