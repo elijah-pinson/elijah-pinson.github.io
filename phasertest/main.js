@@ -5,81 +5,90 @@ var game = new Phaser.Game(500, 600, Phaser.AUTO, 'game_div');
 // And now we define our first and only state, I'll call it 'main'. A state is a specific scene of a game like a menu, a game over screen, etc.
 var main_state = {
     preload: function() {
-    
-    this.leftvel = 0;
-    this.rightvel = 0;
-    this.leftpress = false;
-    this.rightpress = false;
-    
         // Everything in this function will be executed at the beginning. That’s where we usually load the game’s assets (images, sounds, etc.)
 	game.load.image('hello', 'assets/hello.png');
+	//game.load.image('bullet', 'assets/bullet.png');
+	game.load.spritesheet('bullet', 'assets/sprite_wm.png', 30, 30);
     },
 
     create: function() { 
         // This function will be called after the preload function. Here we set up the game, display sprites, add labels, etc.
+        //bullets
+		
+		
+		this.nextShotAt = 0;
+		this.shotDelay = 200;
+		
+        this.bulletPool = this.add.group();
+
+        //physics for bullets
+        this.bulletPool.enableBody = true;
+		this.bulletPool.physicsBodyType = Phaser.Physics.ARCADE;
+		
+		this.bulletPool.createMultiple(100, 'bullet');
+		
+		// Sets anchors of all sprites
+		this.bulletPool.setAll('anchor.x', 0.5);
+		this.bulletPool.setAll('anchor.y', 0.5);
+
+		// Automatically kill the bullet sprites when they go out of bounds
+		this.bulletPool.setAll('outOfBoundsKill', true);
+		this.bulletPool.setAll('checkWorldBounds', true);
+
+		this.bulletPool.forEach(function (bul) {
+			bul.animations.add('spin', [0, 1, 2, 3], 8, true);
+			bul.play('spin');
+		});
+		
+		
 		this.hello_sprite = game.add.sprite(250, 300, 'hello');
+		//this.hello_sprite.animations.add('fire', [1]
 		this.hello_sprite.anchor.setTo(0.5, 0.5);
-		var left_key = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-		left_key.onDown.add(this.leftturnon, this);
-		left_key.onUp.add(this.leftturnoff, this);
-	
-		var right_key = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-		right_key.onDown.add(this.rightturnon, this);
-		right_key.onUp.add(this.rightturnoff, this);
 		
 		this.settext();
     },
 
     update: function() {
         // This is where we will spend the most of our time. This function is called 60 times per second to update the game.
-    	if(this.leftpress) {
-    		this.leftvel += .15;   		
-    	}
-    	else {
-    		if (this.leftvel > 0)
-    			this.leftvel -= .15;
-    		if (this.leftvel < 0)
-    			this.leftvel = 0;
-    	}
-    	
-    	this.hello_sprite.angle -= this.leftvel;
-    		
-    	if(this.rightpress) {
-    		this.rightvel += .15;   		
-    	}
-    	else {
-    		if (this.rightvel > 0)
-    			this.rightvel -= .15;
-    		if (this.rightvel < 0)
-    			this.rightvel = 0;
-    	}
-    	
-    	this.hello_sprite.angle += this.rightvel;
+		if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+		{
+			this.fire();
+		}
+		
+		if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+		{
+			this.hello_sprite.angle -= 3;
+		}
+		if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+		{
+			this.hello_sprite.angle += 3
+		}
     },
     
     settext: function() {
-    	this.instructions = this.add.text(250, 500, 'left/right arrows to rotate', { font: '20px monospace', fill: '#fff', align: 'center' });
+    	this.instructions = this.add.text(250, 500, 'left/right arrows to rotate\n space to shoot', { font: '20px monospace', fill: '#fff', align: 'center' });
     	this.instructions.anchor.setTo(0.5, 0.5);
     },
 
-    leftturnon: function() {
-		this.leftpress = true;
+    fire: function() {
+	
+		if (this.nextShotAt > this.time.now) {
+			return;
+		}
+		
+		if (this.bulletPool.countDead() === 0) {
+			return;
+		}
+		
+		this.nextShotAt = this.time.now + this.shotDelay;
+		
+		var bullet = this.bulletPool.getFirstExists(false);
+		
+		bullet.reset(250, 300);
+		//bullet.angle = this.hello_sprite.angle;
+		
+		game.physics.arcade.velocityFromRotation(this.hello_sprite.rotation, 400, bullet.body.velocity);
     },
-
-    rightturnon: function() {
-    	this.rightpress = true;
-    },
-    
-    leftturnoff: function() {
-		//this.leftvel = 0;
-		this.leftpress = false;
-    },
-
-    rightturnoff: function() {
-    	//this.rightvel = 0;
-    	this.rightpress = false;
-    }
-
 }
 
 // And finally we tell Phaser to add and start our 'main' state
