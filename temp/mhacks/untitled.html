@@ -1,7 +1,7 @@
 <html>
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
-	<script src="simple.css"></script>
+	<link rel='stylesheet' href="simple.css" ></script>
 
 </head>
 
@@ -9,5 +9,181 @@
 
 	<h1>MHACKS MUSIC</h1>
 
+	<!--
+	canvas will have 5 staff lines
+	11 note or more, 
+
+	every 40px have 20px note in the middle
+	-->
+	<canvas id="myCanvas" width="800" height="200"></canvas>
+    <script>
+
+    //20 across
+      var notes = new Array(50);
+  		for (var i = 0; i < 50; i++) {
+  			//11 notes vertically
+   		 	notes[i] = new Array(30);
+   		 	for (var j = 0; j < 30; j++){
+   		 		notes[i][j] = false;
+   		 	}
+ 		}
+
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      //for the animation of the current note bar
+
+      window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+
+      function draw(myRectangle, context) {
+      	drawstaff();
+      	drawnotes();
+        context.beginPath();
+        context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
+        
+        context.strokeStyle = 'red';
+        context.stroke();
+      }
+
+      function drawnotes(){
+      	for(var i = 0; i < 50; i ++){
+      		for(var j = 0; j < 30; j ++){
+      			if (notes[i][j]){
+      				console.log('praise the lord');
+
+      				context.beginPath();
+				    context.arc(i*20 - 10, j*10 - 10, 5, 0, 2 * Math.PI, false);
+				    //context.fillStyle = 'green';
+				    context.fill();
+				    //context.lineWidth = 5;
+				    context.strokeStyle = '#003300';
+				    context.stroke();
+      			}
+      		}
+      	}
+      }
+
+      function drawstaff(){
+      	  context.strokeStyle = 'black';
+
+	      context.beginPath();
+	      context.moveTo(0, 50);
+	      context.lineTo(800, 50);
+	      context.stroke();
+
+	      context.moveTo(0, 65);
+	      context.lineTo(800, 65);
+	      context.stroke();
+
+	      context.moveTo(0, 80);
+	      context.lineTo(800, 80);
+	      context.stroke();
+
+	      context.moveTo(0, 95);
+	      context.lineTo(800, 95);
+	      context.stroke();
+
+	      context.moveTo(0, 110);
+	      context.lineTo(800, 110);
+	      context.stroke();
+      }	
+
+      function animate(myline, canvas, context, startTime) {
+        // update
+        var time = (new Date()).getTime() - startTime;
+
+        var linearSpeed = 100;
+        // pixels / second
+        var newX = linearSpeed * time / 1000;
+        /*
+        if(newX >= canvas.width) {
+        	myRectangle.x = 0;
+        }
+        */
+        myRectangle.x = newX%800;
+        
+
+
+        // clear
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        draw(myRectangle, context);
+
+        // request new frame
+        requestAnimFrame(function() {
+          animate(myRectangle, canvas, context, startTime);
+        });
+      }
+
+
+      //mouse pos
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+
+      function findnearest(canvas, mousePos) {
+      	var nearestx = 0;
+      	var nearesty = 0;
+
+      	for (; nearesty < canvas.height; nearesty += 10) {
+      		if(nearesty > mousePos.y)
+      			break;
+      	}
+      	for (; nearestx < canvas.width; nearestx += 20) {
+      		if(nearestx > mousePos.x) {
+      			//nearestx -= 30;
+      			break;
+      		}
+      	}
+      	console.log(nearestx/10);
+      	console.log(nearesty/20);
+      	notes[nearestx/20][nearesty/10] = !notes[nearestx/20][nearesty/10];
+      		
+      }
+
+      canvas.addEventListener('mousedown', function(evt) {
+        var mousePos = getMousePos(canvas, evt);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        console.log(mousePos.x);
+      	console.log(mousePos.y);
+      	findnearest(canvas, mousePos);
+        //writeMessage(canvas, message);
+      }, false);
+
+
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      var myRectangle = {
+        x: 0,
+        y: 40,
+        width: 2,
+        height: 80,
+        borderWidth: 2
+      };
+
+      //draw(myRectangle, context);
+      //animate(myRectangle, canvas, context, 1000);
+      // wait one second before starting animation
+
+      setTimeout(function() {
+        var startTime = (new Date()).getTime();
+        animate(myRectangle, canvas, context, startTime);
+      }, 1000);
+
+      
+    </script>
+
+
+    <h2>click on the staff to add a note</h2>
 </body>
 </html>
