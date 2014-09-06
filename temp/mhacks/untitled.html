@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>mhack music</title>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
 	<script src="jquery-1.11.1.min.js"></script>
 	<link rel='stylesheet' href="simple.css" ></script>
@@ -12,19 +13,26 @@
 
 <body>
 <div id="wrapper" style="display:none;">
-	<h1>MHACKS MUSIC</h1>
+	<h1>MHACK MUSIC</h1>
 
 	<!--
 	canvas will have 5 staff lines
 	11 note or more, 
 
 	every 40px have 20px note in the middle
+
+  2D array 'notes' is the most important. it is what will be used for playing the sounds
 	-->
+  <!--<img src="treble.png" height = "150px">-->
 	<canvas id="myCanvas" width="800" height="200"></canvas>
     <script>
 
+
+
     //20 across
       var notes = new Array(50);
+
+
   		for (var i = 0; i < 50; i++) {
   			//11 notes vertically
    		 	notes[i] = new Array(30);
@@ -63,7 +71,7 @@
 
       				context.beginPath();
 				    context.arc(i*20 - 10, j*10 - 10, 7.5, 0, 2 * Math.PI, false);
-				    context.fillStyle = 'rgba(0, 0, 0, 0.85)';
+				    context.fillStyle = 'rgba(50, 50, 50, 0.85)';
 
 				    context.fill();
 				    //context.lineWidth = 5;
@@ -75,28 +83,78 @@
       }
 
       function drawstaff(){
-      	  context.strokeStyle = 'grey';
+      	
 
 	      context.beginPath();
+        context.strokeStyle = 'grey';
 	      context.moveTo(0, 50);
 	      context.lineTo(800, 50);
 	      context.stroke();
 
+        context.beginPath();
+        context.strokeStyle = 'grey';
 	      context.moveTo(0, 70);
 	      context.lineTo(800, 70);
 	      context.stroke();
 
+        context.beginPath();
+        context.strokeStyle = 'grey';
 	      context.moveTo(0, 90);
 	      context.lineTo(800, 90);
 	      context.stroke();
 
+        context.beginPath();
+        context.strokeStyle = 'grey';
 	      context.moveTo(0, 110);
 	      context.lineTo(800, 110);
 	      context.stroke();
 
+        context.beginPath();
+        context.strokeStyle = 'grey';
 	      context.moveTo(0, 130);
 	      context.lineTo(800, 130);
 	      context.stroke();
+        
+        //measure lines
+        context.beginPath();
+        context.strokeStyle = 'rgba(5, 50, 50, 0.5)';       
+        context.moveTo(200, 50);
+        context.lineTo(200, 130);
+        context.stroke();
+
+        context.beginPath();
+        context.strokeStyle = 'rgba(5, 50, 50, 0.5)';    
+        context.moveTo(400, 50);
+        context.lineTo(400, 130);
+        context.stroke();
+
+        context.beginPath();
+        context.strokeStyle = 'rgba(5, 50, 50, 0.5)';    
+        context.moveTo(600, 50);
+        context.lineTo(600, 130);
+        context.stroke();
+/*
+        //repeat sign
+        context.moveTo(799, 50);
+        context.lineTo(799, 130);
+        context.stroke();
+
+        context.moveTo(790, 50);
+        context.lineTo(790, 130);
+        context.stroke();
+
+        context.beginPath();
+        context.arc(785, 80, 2, 0, 2 * Math.PI, false);
+        context.fillStyle = 'black';
+        context.fill();
+        context.stroke();
+
+        context.beginPath();
+        context.arc(785, 100, 2, 0, 2 * Math.PI, false);
+        context.fillStyle = 'black';
+        context.fill();
+        context.stroke();
+  */
       }	
 
       function animate(myline, canvas, context, startTime) {
@@ -141,7 +199,7 @@
       	var nearesty = 0;
 
       	for (; nearesty < canvas.height; nearesty += 10) {
-      		if(nearesty > mousePos.y)
+      		if(nearesty > mousePos.y && nearesty > 10)
       			break;
       	}
       	for (; nearestx < canvas.width; nearestx += 20) {
