@@ -1,12 +1,17 @@
 <html>
 <head>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:600,400' rel='stylesheet' type='text/css'>
+	<script src="jquery-1.11.1.min.js"></script>
 	<link rel='stylesheet' href="simple.css" ></script>
 
 </head>
 
-<body>
+<script type="text/javascript">
+    $(document).ready(function () { $('#wrapper').delay(1000).fadeIn(1500)});
+  </script>
 
+<body>
+<div id="wrapper" style="display:none;">
 	<h1>MHACKS MUSIC</h1>
 
 	<!--
@@ -167,9 +172,9 @@
       //this is the bar that moves
       var myRectangle = {
         x: 0,
-        y: 0,
+        y: 20,
         width: 2,
-        height: 180,
+        height: 140,
         borderWidth: 2
       };
 
@@ -187,5 +192,6 @@
 
 
     <h2>click on the staff to add a note</h2>
+</div>
 </body>
 </html>
