@@ -1,9 +1,12 @@
 body{
+	font-family: 'Raleway', sans-serif;
 	text-align:center;
+	font-size: 12px;
+
 }
 
 h1{
-	font-family: 'Raleway', sans-serif;
+	
 	font-size: 60px;
 	color: grey;
 
@@ -11,10 +14,9 @@ h1{
 }
 
 h2{
-	font-family: 'Raleway', sans-serif;
-	font-size: 12px;
+	
+	font-size: 14px;
 	color: grey;
 
-	padding-top: 5%;
 }
 

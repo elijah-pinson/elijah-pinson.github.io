@@ -63,7 +63,8 @@
 
       				context.beginPath();
 				    context.arc(i*20 - 10, j*10 - 10, 7.5, 0, 2 * Math.PI, false);
-				    //context.fillStyle = 'green';
+				    context.fillStyle = 'rgba(0, 0, 0, 0.85)';
+
 				    context.fill();
 				    //context.lineWidth = 5;
 				    context.strokeStyle = '#003300';
@@ -74,7 +75,7 @@
       }
 
       function drawstaff(){
-      	  context.strokeStyle = 'black';
+      	  context.strokeStyle = 'grey';
 
 	      context.beginPath();
 	      context.moveTo(0, 50);
@@ -191,7 +192,11 @@
     </script>
 
 
-    <h2>click on the staff to add a note</h2>
+    
+    <h2 style="font-style:italic;">a collaborative music generation interface made at mhacks iv</h2>
+
+    <h2>click on the staff to add or remove a note</h2>
+    made by: berwin xie, mohammad saad, rufei zhou, yosub shin
 </div>
 </body>
 </html>
