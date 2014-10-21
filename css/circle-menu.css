@@ -1,11 +1,11 @@
-﻿html,body{height:100%;padding:0;margin:0;overflow:hidden;}
+﻿html,body{height:100%;padding:0;margin:0;}
 .menu li:first-child {
     background:#f0f0f0;
     font-weight:bold;
     font-family:arial black;
     font-size:200%;
     background:url(http://i.imgur.com/151cu04.png);
-    background-size: cover; 
+    background-size: cover;
     border-color: #fff;
     border-width: 2px;
     border-style: solid;
@@ -69,4 +69,3 @@ nav a.active{
     left:47%;
     top:285px;
 }
-
