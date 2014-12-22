@@ -9,8 +9,7 @@ body {
 
 .wrapper {
     margin: 0 auto;
-    width: 60%;
-    height: 80%;
+    width: 90%;
 }
 
 #background {
@@ -106,9 +105,11 @@ a:after {
 
     /*This is where you set the padding you want between the images*/
     padding:10px;
-
+    height: 80%;
 }
 .Collage img{
+    height: 50px;
+    width: auto;
     margin:0;
     padding:0;
     display:inline-block;

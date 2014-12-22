@@ -30,7 +30,8 @@
 	        $('.Collage').removeWhitespace().collagePlus(
 	            {
 	                'fadeSpeed'     : 2000,
-	                'targetHeight'  : 200
+	                'targetHeight'  : 200,
+	                'allowPartialLastRow' : true
 	            }
 	        );
 	    };
@@ -90,17 +91,11 @@
     	</script>
 
     	<script>
-    		var texts = ['software engineer', 'thrill seeker', 'fun enthusiast', 'hackathon hacker', 'sleeper'];
-    		var count = 1;
+    		var texts = ['software engineer', 'thrill seeker', 'fun enthusiast', 'hackathon hacker', 'sleeper', 'fighting illini'];
     		setInterval(function() {
-			  // do some change that will happen every 5 seconds
-			  $('#background').text(texts[count++]);
-
-
-			  if(count == texts.length)
-			  	count = 0;
-
-			}, 5000); // <- 5 seconds
+			  // do some change that will happen every 3 seconds
+			  $('#background').text(texts[Math.floor(Math.random()*texts.length)]);
+			}, 3000); // <- 3 seconds
     	</script>
 	</head>
 
@@ -138,7 +133,7 @@
 		   			<h1>HACKATHONS AND PROJECTS</h1>
 		   			I enjoy going to hackathons and making whatever I feel like. Also, SIGMusic.
 		   			<section class="Collage effect-parent">
-		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png" width = "400" height="100"></a></div>
+		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png" width = "200" height="50"></a></div>
 
 		   				<div class="Image_Wrapper" data-caption="EOH 2014: SIGMusic Leap Motion Interactive Exhibit"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif" height="100px" width="100px"></a></div>
 
@@ -149,7 +144,9 @@
 
 		   				<div class="Image_Wrapper" data-caption="Art: Made at YHack 2014"><a href="https://chrome.google.com/webstore/detail/art/pdlgekbegnmmhadkmoeiobdhpkamaene" target="_blank"><img src="assets/img/yhackLogo.png" height="100px" width="100px"></a></div>
 
-						
+						<div class="Image_Wrapper" data-caption="Bweets by J: a Twitter sorting sonifier"><a href="http://yoko.so/~jake/poc/twitter/" target="_blank"><img src="assets/img/hackillinois2014.png" height="100px" width="100px"></a></div>
+		   				
+
 		   			</section>
 		   		</div>
 	    	</div>
