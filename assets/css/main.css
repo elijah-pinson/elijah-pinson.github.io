@@ -114,7 +114,7 @@ a:after {
     display:inline-block;
     vertical-align:bottom;
     opacity:1;
-
+    background: white;
     /*This is where you set the border you want for the image*/
     border:6px solid #FFF;
 }
