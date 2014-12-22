@@ -30,7 +30,7 @@
 	        $('.Collage').removeWhitespace().collagePlus(
 	            {
 	                'fadeSpeed'     : 2000,
-	                'targetHeight'  : 200,
+	                'targetHeight'  : 125,
 	                'allowPartialLastRow' : true
 	            }
 	        );
@@ -55,7 +55,6 @@
 				* Plugin intialization
 				*/
 		    	$('#pagepiling').pagepiling({
-		    		menu: '#menu',
 		    		anchors: ['front', 'projects', 'info'],
 				    sectionsColor: ['white', '#efefef', '#dfdfdf'],
 				    navigation: {
@@ -73,20 +72,6 @@
 				    	}
 				    }
 				});
-
-
-				/*
-			    * Internal use of the demo website
-			    */
-			    $('#showExamples').click(function(e){
-					e.stopPropagation();
-					e.preventDefault();
-					$('#examplesList').toggle();
-				});
-
-				$('html').click(function(){
-					$('#examplesList').hide();
-				});
 		    });
     	</script>
 
@@ -102,30 +87,32 @@
 	<body class='centered'>
 		<div id="pagepiling">
 		    <div class="section" id="section1">
-		    	<div id='background'>software engineer</div>
-				<h1>BERWIN XIE</h1>
-				<h3><a href='mailto:me@berwin.io'>me@berwin.io</a></h3>
+		    	<!--<div class="box">-->
+			    	<div id='background'>software engineer</div>
+					<h1>BERWIN XIE</h1>
+					<h3><a href='mailto:me@berwin.io'>me@berwin.io</a></h3>
 
-				<div class='divbar'>
-					/ <a href="bxie_nov2014.pdf">resume</a> / <a href="https://github.com/berwin7996">github</a> / <a href="https://www.linkedin.com/in/berwinxie" target='_blank'>linkedin</a> / <a href="http://berwinxie.wordpress.com" target='_blank'>blog</a> /
-				</div>
-				
-				<!--<div class='circle' style="background: url(assets/img/me/colorado.jpg) no-repeat; background-position: 50%;"></div>-->
+					<div class='divbar'>
+						/ <a href="bxie_nov2014.pdf">resume</a> / <a href="https://github.com/berwin7996">github</a> / <a href="https://www.linkedin.com/in/berwinxie" target='_blank'>linkedin</a> / <a href="http://berwinxie.wordpress.com" target='_blank'>blog</a> /
+					</div>
+					
+					<!--<div class='circle' style="background: url(assets/img/me/colorado.jpg) no-repeat; background-position: 50%;"></div>-->
 
-				<img id="profile" src='assets/img/me/colorado.jpg' style='width:300px;'/>
+					<img id="profile" src='assets/img/me/colorado.jpg' style='width:200px;'/>
 
-				<table style='margin: 0 auto;'>
-					<tr>
-						<td><b>/ listening to /</b></td>
-						<td><b>/ reading /</b></td>
-						<td><b>/ working on /</b></td>
-					</tr>
-					<tr>
-						<td><a href='http://www.arminvanbuuren.com/' target='_blank'>Armin van Buuren</a></td>
-						<td><a href='http://www.goodreads.com/book/show/18373.Flowers_for_Algernon' target='_blank'>Flowers for Algernon</a></td>
-						<td><a href=''>this website</a></td>
-					</tr>
-				</table>
+					<table style='margin: 0 auto;'>
+						<tr>
+							<td><b>/ listening to /</b></td>
+							<td><b>/ reading /</b></td>
+							<td><b>/ working on /</b></td>
+						</tr>
+						<tr>
+							<td><a href='http://www.arminvanbuuren.com/' target='_blank'>Armin van Buuren</a></td>
+							<td><a href='http://www.goodreads.com/book/show/18373.Flowers_for_Algernon' target='_blank'>Flowers for Algernon</a></td>
+							<td><a href=''>this website</a></td>
+						</tr>
+					</table>
+				<!--</div>-->
 			</div>
 
 			<div class="section" id="section2">
@@ -133,18 +120,18 @@
 		   			<h1>PROJECTS</h1>
 		   			I enjoy going to hackathons and making whatever I feel like. Also, SIGMusic.
 		   			<section class="Collage effect-parent">
-		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png" width = "200" height="50"></a></div>
+		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png"></a></div>
 
-		   				<div class="Image_Wrapper" data-caption="EOH 2014: SIGMusic Leap Motion Interactive Exhibit"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif" height="100px" width="100px"></a></div>
+		   				<div class="Image_Wrapper" data-caption="EOH 2014: SIGMusic Leap Motion Interactive Exhibit"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif"></a></div>
 
-		   				<div class="Image_Wrapper" data-caption="MHacksMusic: Made at MHacks IV"><a href="http://challengepost.com/software/mhacks-music" target="_blank"><img src="assets/img/mhacks_frame.png" height="100px" width="100px"></a></div>
+		   				<div class="Image_Wrapper" data-caption="MHacksMusic: Made at MHacks IV"><a href="http://challengepost.com/software/mhacks-music" target="_blank"><img src="assets/img/mhacks_frame.png"></a></div>
 
-		   				<div class="Image_Wrapper" data-caption="Markov Music: A Python music generator that uses .midi files as learning data"><a href="https://github.com/berwin7996/pyKov-Music" target="_blank"><img src="assets/img/markov.svg" height="100px" width="100px"></a></div>
+		   				<div class="Image_Wrapper" data-caption="Markov Music: A Python music generator that uses .midi files as learning data"><a href="https://github.com/berwin7996/pyKov-Music" target="_blank"><img src="assets/img/markov.svg"></a></div>
 
 
-		   				<div class="Image_Wrapper" data-caption="Art: Made at YHack 2014"><a href="https://chrome.google.com/webstore/detail/art/pdlgekbegnmmhadkmoeiobdhpkamaene" target="_blank"><img src="assets/img/yhackLogo.png" height="100px" width="100px"></a></div>
+		   				<div class="Image_Wrapper" data-caption="Art: Made at YHack 2014"><a href="https://chrome.google.com/webstore/detail/art/pdlgekbegnmmhadkmoeiobdhpkamaene" target="_blank"><img src="assets/img/yhackLogo.png"></a></div>
 
-						<div class="Image_Wrapper" data-caption="Bweets by J: a Twitter sorting sonifier"><a href="http://yoko.so/~jake/poc/twitter/" target="_blank"><img src="assets/img/hackillinois2014.png" height="100px" width="100px"></a></div>
+						<div class="Image_Wrapper" data-caption="Bweets by J: a Twitter sorting sonifier"><a href="http://yoko.so/~jake/poc/twitter/" target="_blank"><img src="assets/img/hackillinois2014.png"></a></div>
 		   				
 
 		   			</section>

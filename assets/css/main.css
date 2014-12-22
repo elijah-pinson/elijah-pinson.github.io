@@ -12,6 +12,16 @@ body {
     width: 90%;
 }
 
+.box {
+    margin: 0 auto;
+    padding: 20px;
+    width: 30%;
+    background-color: #fcfcfc; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+}
+
 #background {
 	font-size: 300%;
 	font-weight: 700;
@@ -105,11 +115,10 @@ a:after {
 
     /*This is where you set the padding you want between the images*/
     padding:10px;
-    height: 80%;
+    width: 80%;
+    margin: 0 auto;
 }
 .Collage img{
-    height: 50px;
-    width: auto;
     margin:0;
     padding:0;
     display:inline-block;
