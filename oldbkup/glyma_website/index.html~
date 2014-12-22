@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Berwin Xie">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Glyma Peptide Search</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don"t actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script src="jquery-1.10.2.js"></script>
+  	<script src="jquery-ui-1.10.4.custom.min.js"></script>
+  	<link href="jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+  	
+  	<script type="text/javascript" src="data.js"></script>
+  	<script type="text/javascript" src="map.js"></script>
+  	
+  	<script>
+		
+  		var availableTags = ["Glyma16g03080.1", "Glyma02g46870.1", "Glyma14g01840.1", "Glyma16g07350.1", "Glyma18g32513.1", "Glyma18g40780.1", "Glyma10g35700.1", "Glyma10g35700.2", "Glyma05g11630.2", "Glyma19g07240.3", "Glyma08g43940.1", "Glyma18g08910.1", "Glyma16g22630.4", "Glyma07g06480.1", "Glyma11g08931.1", "Glyma17g31491.1", "Glyma05g11630.3", "Glyma16g22630.2", "Glyma16g22630.3", "Glyma01g36460.2", "Glyma05g24110.1", "Glyma02g04770.1", "Glyma02g04770.2", "Glyma19g07240.4", "Glyma17g23900.1", "Glyma03g40490.1", "Glyma03g40490.2", "Glyma02g15640.1", "Glyma10g30140.6", "Glyma19g43150.1", "Glyma08g17555.1", "Glyma10g30130.7", "Glyma20g37280.2", "Glyma15g41600.2", "Glyma15g41600.1", "Glyma02g46950.2", "Glyma20g28631.2", "Glyma11g00810.5", "Glyma11g00810.4", "Glyma11g00810.1", "Glyma11g00810.2", "Glyma19g29741.1", "Glyma20g37290.2", "Glyma01g44833.1", "Glyma18g46920.1", "Glyma09g39390.1", "Glyma10g30130.1", "Glyma10g30130.4", "Glyma10g30130.5", "Glyma10g30130.6", "Glyma20g37280.3", "Glyma20g37280.1", "Glyma20g37280.4", "Glyma20g37280.5", "Glyma14g01780.2", "Glyma14g01780.1", "Glyma20g28631.1", "Glyma07g32790.2", "Glyma10g30140.1", "Glyma10g30140.7", "Glyma10g30140.9", "Glyma10g30140.8", "Glyma03g00900.2", "Glyma07g32790.1", "Glyma10g39320.1"];
+  		
+  	
+	  $(function() {
+		$("#tags").autocomplete({
+		  source: availableTags
+		});
+	  });
+	  
+	  // wait for the DOM to be loaded 
+		$(document).ready(function() {						
+		    $( "form" ).submit(function( event ) {	
+		      var found = $.inArray($("input").val(), availableTags);
+		      if(found != -1){
+		      	thehtml = "<table class=\"table\">"
+		      	thehtml = thehtml + <td bgcolor=\"#CCFFCC\" style=\"padding:10px\"> Gmax 189: <a href=\"http://soykb.org/gene_card.php?gene=" + availableTags[found] + "\">" + availableTags[found] + "</a>"
+		      	thehtml = thehtml + "<br><br>Gmax 109: <a href=\"http://soykb.org/gene_card_v1.php?gene=" + get109(availableTags[found]) + "\">" + get109(availableTags[found]) + "</a></td>"
+		      	thehtml = thehtml + "<td style=\"padding:10px\">" + dict[availableTags[found]] + "</table>"
+		      	$( "span" ).html(thehtml).show();
+				event.preventDefault();
+		      }
+		      
+		      else{	 
+				  $( "span" ).text( "Not valid!" ).show();
+				  event.preventDefault();
+			  }
+			});
+		}); 
+	  
+  	</script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form id="myForm" class="form-signin" role="form">
+        <h2 class="form-signin-heading">Glyma Peptide Search for cysteine biosynthesis I</h2>
+        <input id="tags" class="form-control" placeholder="Glyma Name (Gmax_189)" required autofocus>
+	<br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+        
+      </form>
+     	<span></span>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
