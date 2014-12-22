@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>berwin.io</title>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+		<link href='assets/css/main.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="assets/css/jquery.pagepiling.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.pagepiling.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.collagePlus.min.js"></script>
+
+		<!--grid-->
+		<script type="text/javascript">
+
+	    // All images need to be loaded for this plugin to work so
+	    // we end up waiting for the whole window to load in this example
+	    $(window).load(function () {
+	        $(document).ready(function(){
+	            collage();
+	            $('.Collage').collageCaption();
+	        });
+	    });
+
+
+	    // Here we apply the actual CollagePlus plugin
+	    function collage() {
+	        $('.Collage').removeWhitespace().collagePlus(
+	            {
+	                'fadeSpeed'     : 2000,
+	                'targetHeight'  : 200
+	            }
+	        );
+	    };
+
+	    // This is just for the case that the browser window is resized
+	    var resizeTimer = null;
+	    $(window).bind('resize', function() {
+	        // hide all the images until we resize them
+	        $('.Collage .Image_Wrapper').css("opacity", 0);
+	        // set a timer to re-apply the plugin
+	        if (resizeTimer) clearTimeout(resizeTimer);
+	        resizeTimer = setTimeout(collage, 200);
+	    });
+
+	    </script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				/*
+				* Plugin intialization
+				*/
+		    	$('#pagepiling').pagepiling({
+		    		menu: '#menu',
+		    		anchors: ['page1', 'page2', 'page3'],
+				    sectionsColor: ['white', '#efefef', '#dfdfdf'],
+				    navigation: {
+				    	'position': 'right',
+				   		'tooltips': ['Page 1', 'Page 2', 'Page 3']
+				   	},
+				    afterRender: function(){
+				    	$('#pp-nav').addClass('custom');
+				    },
+				    afterLoad: function(anchorLink, index){
+				    	if(index>1){
+				    		$('#pp-nav').removeClass('custom');
+				    	}else{
+				    		$('#pp-nav').addClass('custom');
+				    	}
+				    }
+				});
+
+
+				/*
+			    * Internal use of the demo website
+			    */
+			    $('#showExamples').click(function(e){
+					e.stopPropagation();
+					e.preventDefault();
+					$('#examplesList').toggle();
+				});
+
+				$('html').click(function(){
+					$('#examplesList').hide();
+				});
+		    });
+    	</script>
+
+    	<script>
+    		var texts = ['software engineer', 'thrill seeker', 'fun enthusiast', 'hackathon hacker', 'sleeper'];
+    		var count = 1;
+    		setInterval(function() {
+			  // do some change that will happen every 5 seconds
+			  $('#background').text(texts[count++]);
+
+
+			  if(count == texts.length)
+			  	count = 0;
+
+			}, 5000); // <- 5 seconds
+    	</script>
+	</head>
+
+	<body class='centered'>
+		<div id="pagepiling">
+		    <div class="section" id="section1">
+		    	<div id='background'>software engineer</div>
+				<h1>BERWIN XIE</h1>
+				<h3><a href='mailto:me@berwin.io'>me@berwin.io</a></h3>
+
+				<div class='divbar'>
+					/ <a href="">resume</a> / <a href="https://www.linkedin.com/in/berwinxie" target='_blank'>linkedin</a> / <a href="http://berwinxie.wordpress.com" target='_blank'>blog</a> /
+				</div>
+				
+				<!--<div class='circle' style="background: url(assets/img/me/colorado.jpg) no-repeat; background-position: 50%;"></div>-->
+
+				<img src='assets/img/me/colorado.jpg' style='width:300px;'/>
+
+				<table style='margin: 0 auto;'>
+					<tr>
+						<td><b>/ listening to /</b></td>
+						<td><b>/ reading /</b></td>
+						<td><b>/ working on /</b></td>
+					</tr>
+					<tr>
+						<td><a href='http://www.arminvanbuuren.com/' target='_blank'>Armin van Buuren</a></td>
+						<td><a href='http://www.goodreads.com/book/show/18373.Flowers_for_Algernon' target='_blank'>Flowers for Algernon</a></td>
+						<td><a href=''>this website</a></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="section" id="section2">
+	   			<h1>HACKATHONS AND PROJECTS</h1>
+	   			under construction
+	    	</div>
+
+		    <div class="section" id="section3">
+		    	<h1>MORE ABOUT ME</h1>
+		    	under construction
+		    </div>
+		</div>
+
+	</body>
+	
+</html>
+
