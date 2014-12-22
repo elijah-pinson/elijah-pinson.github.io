@@ -9,6 +9,8 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.pagepiling.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.collagePlus.min.js"></script>
+		<script src="assets/js/extras/jquery.removeWhitespace.min.js"></script>
+    	<script src="assets/js/extras/jquery.collageCaption.min.js"></script>
 
 		<!--grid-->
 		<script type="text/javascript">
@@ -115,7 +117,7 @@
 				
 				<!--<div class='circle' style="background: url(assets/img/me/colorado.jpg) no-repeat; background-position: 50%;"></div>-->
 
-				<img src='assets/img/me/colorado.jpg' style='width:300px;'/>
+				<img id="profile" src='assets/img/me/colorado.jpg' style='width:300px;'/>
 
 				<table style='margin: 0 auto;'>
 					<tr>
@@ -132,8 +134,24 @@
 			</div>
 
 			<div class="section" id="section2">
-	   			<h1>HACKATHONS AND PROJECTS</h1>
-	   			under construction
+				<div class="wrapper">
+		   			<h1>HACKATHONS AND PROJECTS</h1>
+		   			I enjoy going to hackathons and making whatever I feel like. Also, SIGMusic.
+		   			<section class="Collage effect-parent">
+		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png" width = "400" height="100"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="EOH 2014: SIGMusic Leap Motion Interactive Exhibit"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif" height="100px" width="100px"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="MHacksMusic: Made at MHacks IV"><a href="http://challengepost.com/software/mhacks-music" target="_blank"><img src="assets/img/mhacks_frame.png" height="100px" width="100px"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="Markov Music: A Python music generator that uses .midi files as learning data"><a href="https://github.com/berwin7996/pyKov-Music" target="_blank"><img src="assets/img/markov.svg" height="100px" width="100px"></a></div>
+
+
+		   				<div class="Image_Wrapper" data-caption="Art: Made at YHack 2014"><a href="https://chrome.google.com/webstore/detail/art/pdlgekbegnmmhadkmoeiobdhpkamaene" target="_blank"><img src="assets/img/yhackLogo.png" height="100px" width="100px"></a></div>
+
+						
+		   			</section>
+		   		</div>
 	    	</div>
 
 		    <div class="section" id="section3">
