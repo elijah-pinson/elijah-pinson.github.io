@@ -8,8 +8,9 @@ body {
 }
 
 .wrapper {
+
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .box {
@@ -35,6 +36,16 @@ body {
 	overflow: hidden;
 }
 
+canvas {
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -999;
+}
+
 /*img*/
 #profile {
 	border-radius: 50%;
@@ -42,6 +53,11 @@ body {
 	box-shadow: 0 0 8px rgba(0, 0, 0, .4);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .4);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+}
+
+img.plane {
+    position: absolute;
+    z-index: -1;
 }
 
 /* titles */
@@ -145,10 +161,10 @@ a:after {
 .Caption{
     font-size:14px;
     font-weight:normal;
-    font-family:arial;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .Caption_Content{
-    /* padding:10px; */
+    padding:5px;
     color:#FFF;
-    padding:20px;
+    /*padding:20px;*/
 }

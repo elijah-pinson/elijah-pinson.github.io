@@ -1,0 +1,59 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.collagePlus.min.js"></script>
+<script src="assets/js/extras/jquery.removeWhitespace.min.js"></script>
+<script src="assets/js/extras/jquery.collageCaption.min.js"></script>
+<script type="text/javascript">
+
+	    // All images need to be loaded for this plugin to work so
+	    // we end up waiting for the whole window to load in this example
+	    $(window).load(function () {
+	        $(document).ready(function(){
+	            collage();
+	            $('.Collage').collageCaption();
+	        });
+	    });
+
+
+	    // Here we apply the actual CollagePlus plugin
+	    function collage() {
+	        $('.Collage').removeWhitespace().collagePlus(
+	            {
+	                'fadeSpeed'     : 2000,
+	                'targetHeight'  : 125,
+	                'allowPartialLastRow' : true
+	            }
+	        );
+	    };
+
+	    // This is just for the case that the browser window is resized
+	    var resizeTimer = null;
+	    $(window).bind('resize', function() {
+	        // hide all the images until we resize them
+	        $('.Collage .Image_Wrapper').css("opacity", 0);
+	        // set a timer to re-apply the plugin
+	        if (resizeTimer) clearTimeout(resizeTimer);
+	        resizeTimer = setTimeout(collage, 200);
+	    });
+
+	    </script>
+<div class="wrapper">
+		   			<h1>PROJECTS</h1>
+		   			I enjoy going to hackathons and making whatever I feel like. Also, SIGMusic.
+		   			<section class="Collage effect-parent">
+		   				<div class="Image_Wrapper" data-caption="Temporal World Music History Visualization: Made for MUS133 honors project"><a href="https://mus133.berwin.io" target='_blank'><img src="assets/img/datamap.png"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="Art: Made at YHack 2014"><a href="https://chrome.google.com/webstore/detail/art/pdlgekbegnmmhadkmoeiobdhpkamaene" target="_blank"><img src="assets/img/yhackLogo.png"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="MHacksMusic: Made at MHacks IV"><a href="http://challengepost.com/software/mhacks-music" target="_blank"><img src="assets/img/mhacks_frame.png"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="Markov Music: A Python music generator that uses .midi files as learning data"><a href="https://github.com/berwin7996/pyKov-Music" target="_blank"><img src="assets/img/markov.svg"></a></div>
+
+		   				<div class="Image_Wrapper" data-caption="EOH 2014: SIGMusic Leap Motion Interactive Exhibit"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif"></a></div>
+
+						<div class="Image_Wrapper" data-caption="Bweets by J: a Twitter sorting sonifier"><a href="http://yoko.so/~jake/poc/twitter/" target="_blank"><img src="assets/img/hackillinois2014.png"></a></div>
+		   				
+
+		   			</section>
+		   		</div>
