@@ -1,96 +1,83 @@
-// We start by initializing Phaser
-// Parameters: width of the game, height of the game, how to render the game, the HTML div that will contain the game
-var game = new Phaser.Game(500, 600, Phaser.AUTO, 'game_div');
+var main = {
+  preload: function() {
+    // Load the paddle image
+    game.load.image('paddle', 'assets/paddle.png');
+    game.load.image('brick', 'assets/orig_bullet.png');
+    // Load the ball sprite
+    game.load.image('ball', 'assets/bullet1.png');
+  },
 
-// And now we define our first and only state, I'll call it 'main'. A state is a specific scene of a game like a menu, a game over screen, etc.
-var main_state = {
-    preload: function() {
-        // Everything in this function will be executed at the beginning. That’s where we usually load the game’s assets (images, sounds, etc.)
-	game.load.image('hello', 'assets/hello.png');
-	//game.load.image('bullet', 'assets/bullet.png');
-	game.load.spritesheet('bullet', 'assets/sprite_wm.png', 30, 30);
-    },
+  create: function() { 
+    // Initialize the physics system of the game
+    game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    create: function() { 
-        // This function will be called after the preload function. Here we set up the game, display sprites, add labels, etc.
-        //bullets
-		
-		
-		this.nextShotAt = 0;
-		this.shotDelay = 200;
-		
-        this.bulletPool = this.add.group();
+    // Create a variable to handle the arrow keys
+    this.cursor = game.input.keyboard.createCursorKeys();
 
-        //physics for bullets
-        this.bulletPool.enableBody = true;
-		this.bulletPool.physicsBodyType = Phaser.Physics.ARCADE;
-		
-		this.bulletPool.createMultiple(100, 'bullet');
-		
-		// Sets anchors of all sprites
-		this.bulletPool.setAll('anchor.x', 0.5);
-		this.bulletPool.setAll('anchor.y', 0.5);
+    // Create the paddle at the bottom of the screen
+    this.paddle = game.add.sprite(200, 400, 'paddle');
 
-		// Automatically kill the bullet sprites when they go out of bounds
-		this.bulletPool.setAll('outOfBoundsKill', true);
-		this.bulletPool.setAll('checkWorldBounds', true);
+    // Enable the physics system for the paddle
+    game.physics.arcade.enable(this.paddle);
 
-		this.bulletPool.forEach(function (bul) {
-			bul.animations.add('spin', [0, 1, 2, 3], 8, true);
-			bul.play('spin');
-		});
-		
-		
-		this.hello_sprite = game.add.sprite(250, 300, 'hello');
-		//this.hello_sprite.animations.add('fire', [1]
-		this.hello_sprite.anchor.setTo(0.5, 0.5);
-		
-		this.settext();
-    },
+    // Make sure the paddle won't move when hit by the ball
+    this.paddle.body.immovable = true;
 
-    update: function() {
-        // This is where we will spend the most of our time. This function is called 60 times per second to update the game.
-		if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
-		{
-			this.fire();
-		}
-		
-		if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
-		{
-			this.hello_sprite.angle -= 3;
-		}
-		if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
-		{
-			this.hello_sprite.angle += 3
-		}
-    },
-    
-    settext: function() {
-    	this.instructions = this.add.text(250, 500, 'left/right arrows to rotate\n space to shoot', { font: '20px monospace', fill: '#fff', align: 'center' });
-    	this.instructions.anchor.setTo(0.5, 0.5);
-    },
+    // Create a group that will contain all the bricks
+    this.bricks = game.add.group();
+    this.bricks.enableBody = true;
 
-    fire: function() {
-	
-		if (this.nextShotAt > this.time.now) {
-			return;
-		}
-		
-		if (this.bulletPool.countDead() === 0) {
-			return;
-		}
-		
-		this.nextShotAt = this.time.now + this.shotDelay;
-		
-		var bullet = this.bulletPool.getFirstExists(false);
-		
-		bullet.reset(250, 300);
-		//bullet.angle = this.hello_sprite.angle;
-		
-		game.physics.arcade.velocityFromRotation(this.hello_sprite.rotation, 400, bullet.body.velocity);
-    },
-}
+    // Create the 16 bricks
+    for (var i = 0; i < 5; i++)
+      for (var j = 0; j < 5; j++)
+        game.add.sprite(55+i*60, 55+j*35, 'brick', 0, this.bricks);
 
-// And finally we tell Phaser to add and start our 'main' state
-game.state.add('main', main_state);  
+    // Make sure that the bricks won't move
+    this.bricks.setAll('body.immovable', true);
+
+    // Create the ball with physics
+    this.ball = game.add.sprite(200, 300, 'ball');
+    game.physics.arcade.enable(this.ball);
+
+    // Add velocity to the ball
+    this.ball.body.velocity.x = 200; 
+    this.ball.body.velocity.y = 200;
+
+    // Make the ball bouncy 
+    this.ball.body.collideWorldBounds = true;
+    this.ball.body.bounce.x = 1; 
+    this.ball.body.bounce.y = 1;
+  },
+
+  update: function() {
+    // If the right arrow is pressed, move the paddle to the right
+    if (this.cursor.right.isDown) 
+      this.paddle.body.velocity.x = 350;
+
+    // If the left arrow if pressed, move left
+    else if (this.cursor.left.isDown) 
+      this.paddle.body.velocity.x = -350;
+
+    // If no arrow is pressed, stop moving
+    else 
+      this.paddle.body.velocity.x = 0;  
+
+
+        // Make the paddle and the ball collide
+    game.physics.arcade.collide(this.paddle, this.ball);
+
+    // Call the 'hit' function when the ball hit a brick
+    game.physics.arcade.collide(this.ball, this.bricks, this.hit, null, this);
+  },
+
+  hit: function(ball, brick) {
+    // When the ball hits a brick, kill the brick
+    brick.kill();
+  }
+};
+
+
+// Initialize Phaser, and start our 'main' state 
+var game = new Phaser.Game(400, 450, Phaser.AUTO, 'game_div');
+game.state.add('main', main);
 game.state.start('main');
