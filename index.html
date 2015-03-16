@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="assets/favicon.ico">
 		<title>berwin.io</title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -67,7 +68,7 @@
 				*/
 		    	$('#pagepiling').pagepiling({
 		    		anchors: ['front', 'projects', 'info'],
-				    sectionsColor: ['white', '#AAF0D1', '#AFEEEE'],
+				    sectionsColor: ['white', '#eeeeee', '#dddddd'],
 				    navigation: {
 				    	'position': 'right',
 				   		'tooltips': ['Page 1', 'Page 2', 'Page 3']
@@ -87,7 +88,7 @@
     	</script>
 
     	<script>
-    		var texts = ['software engineer', 'thrill seeker', 'fun enthusiast', 'hackathon hacker', 'sleeper', 'fighting illini'];
+    		var texts = ['software engineer', 'hackillinois staff', 'hackathon hacker', 'might be sleeping', 'fighting illini', 'future sigmusic chair'];
     		setInterval(function() {
 			  // do some change that will happen every 3 seconds
 			  $('#background').text(texts[Math.floor(Math.random()*texts.length)]);
@@ -117,14 +118,14 @@
 
 					<table style='margin: 0 auto;'>
 						<tr>
-							<td><b>/ listening to /</b></td>
+							<td><b>/ looking forward to /</b></td>
 							<td><b>/ reading /</b></td>
 							<td><b>/ working on /</b></td>
 						</tr>
 						<tr>
-							<td><a href='' target='_blank'>happy things</a></td>
-							<td><a href='' target='_blank'>textbooks</a></td>
-							<td><a href=''>hw | eoh | hackillinois</a></td>
+							<td><a href='' target='_blank'>spring break</a></td>
+							<td><a href='' target='_blank'>class notes</a></td>
+							<td><a href=''>TBD<a></td>
 						</tr>
 					</table>
 				<!--</div>-->
@@ -135,7 +136,9 @@
 		   			<h1>PROJECTS</h1>
 		   			I enjoy going to hackathons and making whatever I feel like. Also, SIGMusic.
 		   			<section class="Collage effect-parent">
-		   				<div class="Image_Wrapper" data-caption="Temporal World Music History Visualization: Made for MUS133 honors project"><a href="mus133.berwin.io" target='_blank'><img src="assets/img/datamap.png"></a></div>
+                        <div class="Image_Wrapper" data-caption="Tonal Starfield: EOH 2015"><a href="http://sigmusic.github.io/tonal-starfield/#/" target='_blank'><img src="assets/img/eoh2015.jpg"></a></div>
+
+                        <div class="Image_Wrapper" data-caption="Temporal World Music History Visualization: Made for MUS133 honors project"><a href="http://mus133.berwin.io" target='_blank'><img src="assets/img/datamap.png"></a></div>
 
 		   				<div class="Image_Wrapper" data-caption="PyDex: Made at WildHacks 2014<br>Top 10 Finalist"><a href="https://github.com/berwin7996/pyDex" target='_blank'><img src="assets/img/pydex.png"></a></div>
 
@@ -160,17 +163,21 @@
 		    	<h1>MORE ABOUT ME</h1>
 		    	<table class="centered" style="width: 60%;">
 		    		<tr>
-		    			<td width="50%">
+		    			<td width="33%">
 		    				Hi! I'm currently a sophomore at the University of Illinois studying computer science. Pretty generic, but I find it quite enjoyable. We have a former powerhouse athletics program that's slowing prying its way back into significance that I enjoy supporting, but it's a painful process to say the least.
 		    				<br><br>
 		    				My teams are the Chicago Bulls, Chicago Bears, Chicago Blackhawks, Fighting Illini Basketball and Football, and the underdog Northwestern Athletics. 
 		    			</td>
 
-		    			<td width="50%">
+		    			<td width="33%">
 		    				In my free time on the computer, I enjoy playing video games, mostly in a non-competitive manner. Personally, I'm not a huge fan of some of the nasty saltiness some people have when gaming.
 		    				<br><br>
 		    				My outdoor freetime is occupied by running, hiking, Ultimate Frisbee, skiing, and whatever seems fun. Just gotta have fun out there and do things to experience all things youthful before it's too late!
 		    			</td>
+                        <td width="33%">
+                            Soon I will be SIG Chair for SIGMusic, where we'll be creating some awesome new projects! This summer, I'll be interning at Epic Systems too! I'm definitely looking forward for the future. :)
+                            <img id="profile" src='assets/img/me/wildhacks.jpg' style='width:200px;'/>
+                        </td>
 		    		</tr>
 		    	</table>
 		    </div>
