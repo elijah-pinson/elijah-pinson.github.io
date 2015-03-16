@@ -170,16 +170,3 @@ a:after {
     color:#FFF;
     /*padding:20px;*/
 }
-.Collage{
-
-     /* define how much padding you want in between your images */
-     padding:10px;
-
- }
-
-.Collage img{
-
-    /* ensures padding at the bottom of the image is correct */
-    vertical-align:bottom;
-
-}
