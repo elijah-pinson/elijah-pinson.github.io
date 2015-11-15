@@ -34,7 +34,7 @@ body {
 	bottom: 0;
 	right: 0;*/
 	z-index: -1;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 canvas {
@@ -170,3 +170,15 @@ a:after {
     color:#FFF;
     /*padding:20px;*/
 }
+
+.section{
+    padding-top: 50px;
+
+}
+
+#section1{
+    height: 100vh;
+}
+
+#section2{
+    background-color: lightblue;

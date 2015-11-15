@@ -7,7 +7,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link href='assets/css/main.css' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="assets/css/jquery.pagepiling.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.pagepiling.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.collagePlus.min.js"></script>
 		<script src="assets/js/extras/jquery.removeWhitespace.min.js"></script>
         <script src="assets/js/extras/jquery.collageCaption.min.js"></script>
@@ -41,7 +43,7 @@
 	        $('.Collage').removeWhitespace().collagePlus(
 	            {
 	                'fadeSpeed'     : 2000,
-	                'targetHeight'  : 100,
+	                'targetHeight'  : 75,
 	                'allowPartialLastRow' : true
 	            }
 	        );
@@ -59,7 +61,32 @@
 
 	    </script>
 
-	
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				/*
+				* Plugin intialization
+				*/
+		    	$('#pagepiling').pagepiling({
+		    		anchors: ['front', 'projects', 'info'],
+				    sectionsColor: ['white', '#eeeeee', '#dddddd'],
+				    navigation: {
+				    	'position': 'right',
+				   		'tooltips': ['Page 1', 'Page 2', 'Page 3']
+				   	},
+				    afterRender: function(){
+				    	$('#pp-nav').addClass('custom');
+				    },
+				    afterLoad: function(anchorLink, index){
+				    	if(index>1){
+				    		$('#pp-nav').removeClass('custom');
+				    	}else{
+				    		$('#pp-nav').addClass('custom');
+				    	}
+				    }
+				});
+		    });
+    	</script>
 
     	<script>
     		var texts = ['software engineer', 'hackathon hacker', 'might be sleeping', 'fighting illini', 'sigmusic chair', 'berwin', 'late nighter'];
@@ -80,24 +107,28 @@
 		    	<!--<div class="box">-->
 			    	<div id='background'>software engineer</div>
 					<h1>&lt; BERWIN XIE &gt;</h1>
-					<h4>qualtrics 2016</h4>
-					<h4>epic systems 2015</h4>
-					<p>
+					<h3><a href='mailto:bxie6@illinois.edu'>&lt; email me &gt;</a></h3>
 
-					
+					<div class='divbar'>
+						/ <a href="assets/berwinxie_resume.pdf">resume</a> / <a href="https://github.com/berwin7996">github</a> / <a href="https://www.linkedin.com/in/berwinxie" target='_blank'>linkedin</a>  /
+					</div>
 
 					<!--<div class='circle' style="background: url(assets/img/me/colorado.jpg) no-repeat; background-position: 50%;"></div>-->
 
 					<img id="profile" src='assets/img/me/colorado.jpg' style='width:200px;'/>
-					<h3><a href='mailto:bxie6@illinois.edu'>&lt; email me &gt;</a></h3>
-					
-					<div class='divbar'>
-						/ <a href="assets/berwinxie_resume.pdf">resume</a> / <a href="https://github.com/berwin7996">github</a> / <a href="https://www.linkedin.com/in/berwinxie" target='_blank'>linkedin</a> / 
-					</div>
-					<div class='divbar'>
-						/ <a href="https://www.medium.com/@berwin" target='_blank'>medium</a> / <a href="https://www.twitter.com/berwinxie" target='_blank'>twitter</a> /
-					</div>
 
+					<table style='margin: 0 auto;'>
+						<tr>
+							<td><b>/ looking forward to /</b></td>
+							<td><b>/ reading /</b></td>
+							<!--<td><b>/ working on /</b></td>-->
+						</tr>
+						<tr>
+							<td><a href='' target='_blank'>the weekend</a></td>
+							<td><a href='' target='_blank'>class notes</a></td>
+							<!--<td><a href=''>TBD<a></td>-->
+						</tr>
+					</table>
 				<!--</div>-->
 			</div>
 
@@ -129,6 +160,22 @@
 		   		</div>
 	    	</div>
 
+		    <div class="section" id="section3">
+		    	<h1>MORE ABOUT ME</h1>
+		    	<table class="centered" style="width: 60%;">
+		    		<tr>
+		    			<td>
+                            <img id="profile" src='assets/img/me/wildhacks.jpg' style='width:200px;'/>
+                            <br>
+		    				Hi! I'm currently a junior at the University of Illinois studying computer science. Pretty generic, but I find it quite enjoyable.
+                            I'm the chair for SIGMusic, where we're creating some awesome new projects related to music! Previously, I interned at Epic Systems, but my plans are open for next summer!
+														Contact me if you have any questions!
+
+                        </td>
+
+		    		</tr>
+		    	</table>
+		    </div>
 		</div>
 
 		<!-- loading js after canvas -->
