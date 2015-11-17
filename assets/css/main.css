@@ -71,7 +71,7 @@ b {
 h1 {
 	font-family: 'PT Sans', sans-serif;
 	font-weight: 300;
-	font-size: 150%;
+	font-size: 200%;
 	margin: 5px;
 
 }
@@ -171,8 +171,15 @@ a:after {
     /*padding:20px;*/
 }
 
+.info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .section{
     padding-top: 50px;
+    padding-bottom: 50px;
 
 }
 
@@ -194,4 +201,15 @@ a:after {
     border-right: 20px solid transparent;
     
     border-top: 10px solid #000000;
+}
+
+
+@media only screen and (max-device-width: 480px) {
+
+    .info {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
 }

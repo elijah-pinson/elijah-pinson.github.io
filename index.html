@@ -31,12 +31,13 @@
 	    // All images need to be loaded for this plugin to work so
 	    // we end up waiting for the whole window to load in this example
 	    $(window).load(function () {
-	        $(document).ready(function(){
-	        	//random me
-			 	$('#profile').attr('src', me_imgs[0]);
-			 	$('#profile').attr('src', me_imgs[Math.floor(Math.random()*me_imgs.length)]);
+	    	//random me
+		 	$('#profile').attr('src', me_imgs[0]);
+		 	$('#profile').attr('src', me_imgs[Math.floor(Math.random()*me_imgs.length)]);
 
-	        	console.log('blag');
+	        $(document).ready(function(){
+	        	
+	        	// console.log('blag');
 	            collage();
 	            $('.Collage').collageCaption();
 	        });
@@ -53,14 +54,14 @@
 	            }
 	        );
 
-	        console.log('ho');
+	        // console.log('ho');
 	    };
 
 	    // This is just for the case that the browser window is resized
 	    var resizeTimer = null;
 	    $(window).bind('resize', function() {
 	        // hide all the images until we resize them
-	        console.log('kjdlsfjlsajflk');	
+	        // console.log('kjdlsfjlsajflk');	
 	        $('.Collage .Image_Wrapper').css("opacity", 0);
 	        // set a timer to re-apply the plugin
 	        if (resizeTimer) clearTimeout(resizeTimer);
@@ -113,6 +114,33 @@
 		</div>
 
 		<div class="section" id="section2">
+			<h1>INVOLVEMENT</h1>
+			<div class="info">
+				<h2>SIGMusic</h2>
+				<p>I'm the current chair of SIGMusic. We are a club affiliated with Illinois's ACM Chapter that likes to make music projects using whatever cool technology is out there. Right now, we're planning for Engineering Open House 2016's exhibit which will involve using Microsoft's Kinect v2 and cool visualizations! Check out some of the stuff I've worked on related to SIGMusic below!</p>
+				<section class="Collage effect-parent" >
+				<div class="Image_Wrapper" data-caption="Tonal Starfield"><a href="http://sigmusic.github.io/tonal-starfield/#/" target='_blank'><img src="assets/img/eoh2015.jpg"></a></div>
+
+   				<div class="Image_Wrapper" data-caption="Markov Music"><a href="https://github.com/berwin7996/pyKov-Music" target="_blank"><img src="assets/img/markov.svg"></a></div>
+
+   				<div class="Image_Wrapper" data-caption="SIGMusic 2014"><a href="https://www.youtube.com/watch?v=3spApNGiDGU"><img src="assets/img/eoh-2014-logo.gif"></a></div>
+
+   			</section>
+
+				<h2>HackIllinois</h2>
+				<p>I was a part of the organizing team for HackIllinois 2015! Our winter themed hackathon was a big success and it couldn't have been done without the help of everyone on the team. I worked on the operations side of things, such as organizing buses and transportation for all the hackers, and just making sure everything ran smoothly in general.</p>
+				<p>Here's some coverage of the epic Nerf war we had! (filmed by yours truly)
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/aHnLSbWElyk" frameborder="0" allowfullscreen></iframe>
+				</p>
+
+				<h2>Engineering 100 Learning Assistant</h2>
+				<p>In Fall 2015, I was an Engineering Learning Assistant (ELA) for incoming freshmen in Computer Science. I led a class of 25 students for three days a week for the first four weeks, teaching them about things to know while in the CS program at Illinois. Their final project involved creating an online portfolio where they could upload the resumes they worked on during the course and have their contact info be available. </p>
+
+			</div>
+
+		</div>
+
+		<div class="section" id="section3">
    			<h1>PROJECTS</h1>
    			<section class="Collage effect-parent" >
     			<div class="Image_Wrapper" data-caption="OculuScooter"><a href="http://oculuscooter.com" target='_blank'><img src="assets/img/oculus.svg"></a></div>
