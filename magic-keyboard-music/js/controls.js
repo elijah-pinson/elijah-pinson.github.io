@@ -5,6 +5,9 @@ var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
 
 var map = []
 
+
+var BASE = 60;
+
 for (var i = 0; i < 256; i++) {
 	map[i] = {pressed: false, held_length: 0};
 }
@@ -29,18 +32,20 @@ document.onkeyup = function(event) {
     event = event || window.event;
     var e = event.keyCode;
 
+    var midi = midiDict(e, BASE);
+    //didn't press a good key
+    if (!midi) return;
 
-
-    var freq = getFrequency(midiDict(e, 60));
+    var freq = getFrequency(midi);
     var release_time = Math.min(400 + map[e].held_length * 40, 3000);
     // console.log(release_time);
-    var tempsynth = T("saw", {freq:freq, mul:0.25});
+    var tempsynth = T("sin", {freq:freq, mul:0.25});
     var env = T("perc", {r:release_time}, tempsynth).bang().play();
     // synth.def.env = env;
 
 	// synth.noteOnWithFreq(freq, 100, env);
 
-	spawnNote(world, release_time, keyDict(e));
+	spawnNote(world, release_time, keyDict(midi));
 
 	console.log(world.getBodies());
 
@@ -51,6 +56,8 @@ document.onkeyup = function(event) {
 
 
 function getFrequency(midi_code) {
+
+
     var offset_code = midi_code - 69;
     if (offset_code > 0) {
         return Number(440 * Math.pow(2, offset_code / 12));
@@ -72,7 +79,6 @@ function midiDict(keycode, offset) {
         case 50:
             midi += 1;
             break;
-
 
         //w 87
         case 87:
@@ -140,69 +146,23 @@ function midiDict(keycode, offset) {
         case 48:
             midi += 15;
             break;
-
-
         //p 80
         case 80:
             midi += 16;
             break;
         default:
-            midi += 0;
+            return false;
             break
     }
     return midi;
 }
 
-function keyDict(keycode) {
-    var x;
-
+function keyDict(midi) {
+    var midi_temp = midi - BASE;
+    var left_bound = 100;
     // 10 is number of keys I'm using
-    var tempwidth = width/10;
+    var tempwidth = (width-200)/17;
 
-    switch(keycode){
-        //q 81
-        case 81:
-            x = tempwidth;
-            break;
-        //w 87
-        case 87:
-            x = tempwidth*2;
-            break;
-        //e 69
-        case 69:
-            x = tempwidth*3;
-            break;
-        //r 82
-        case 82:
-            x = tempwidth*4;            
-            break;
-        //t 84
-        case 84:
-            x = tempwidth*5;
-            break;
-        //y 89
-        case 89:
-            x = tempwidth*6;
-            break;
-        //u 85
-        case 85:
-            x = tempwidth*7;
-            break;
-        //i 73
-        case 73:
-            x = tempwidth*8;
-            break;
-        //o 79
-        case 79:
-            x = tempwidth*9;
-            break;
-        //p 80
-        case 80:
-            x = tempwidth*10;
-            break;
-        default:
-            x = width/2;
-            break
-    }
-    return x;
+  
+    return left_bound + midi_temp * tempwidth;
 }

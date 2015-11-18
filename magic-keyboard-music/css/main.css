@@ -4,3 +4,8 @@ body {
 #canvasid{
 	background-color:black;
 }
+img{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

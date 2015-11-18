@@ -7,20 +7,21 @@ function spawnNote(note, size, x) {
 
     var side_len = size/30;
 
-    var rand_x = (Math.random()*2 - 1)/30;
-    world.add(Physics.body("circle",{
+    var rand_x = (Math.random()*2 - 1)/100;
+
+    var body = Physics.body("circle",{
             x: px,
             y: py,
-            // vertices: [
-            //     {x:0, y:0},
-            //     {x:0, y:side_len},
-            //     {x:side_len, y:side_len},
-            //     {x:side_len, y:0}
 
-            // ],
-            fillStyle: 'hsla(20, 37%, 57%, 0.8)',
+            styles: {
+                strokeStyle: '#123456',
+                lineWidth: 0,
+                fillStyle: '#542437',
+                angleIndicator: 'white'
+            },
             radius: side_len,
             restitution:0.5,
-    }).applyForce(Physics.vector(rand_x,-0.1)));
+    });
+    world.add(body.applyForce(Physics.vector(rand_x,-0.1)));
 
 }
