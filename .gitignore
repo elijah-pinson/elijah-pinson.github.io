@@ -1,3 +1,4 @@
 *.rbc
 *.fyc
 node_modules/
+build/
