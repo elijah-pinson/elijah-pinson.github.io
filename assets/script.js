@@ -1,0 +1,1 @@
+var showProject=function(a){$("#project-".concat(a)).addClass("active").siblings().removeClass("active"),$("#li-".concat(a)).addClass("active").siblings().removeClass("active")};

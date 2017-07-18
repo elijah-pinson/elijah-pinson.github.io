@@ -1,2 +1,33 @@
-test {
-  font-family: 'Roboto'; }
+body {
+  font-family: 'Zilla Slab', serif;
+  font-size: 2em; }
+
+img {
+  width: 100%;
+  margin-bottom: 10px; }
+
+.row {
+  margin-top: 10px; }
+
+.footer {
+  position: absolute;
+  bottom: 2em; }
+
+.projects-li {
+  border-bottom: 1px dashed gray;
+  color: #337ab7; }
+  .projects-li:hover {
+    cursor: pointer; }
+  .projects-li.active {
+    background-color: lightgray; }
+
+.projects-img {
+  width: 80%; }
+
+.projects-area {
+  border-left: 1px dashed black; }
+
+.projects-project {
+  display: none; }
+  .projects-project.active {
+    display: block; }
