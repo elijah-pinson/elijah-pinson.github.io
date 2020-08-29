@@ -2,83 +2,160 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Elijah's Page</title>
-  <meta name="description" content="elijah pinson website">
-  <meta name="author" content="elijah pinson">
+    <title>Elijah's Page</title>
+    <meta name="description" content="elijah pinson website">
+    <meta name="author" content="elijah pinson">
 
-  <!-- Bootstrap -->
-  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+    <!-- Bootstrap -->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
 
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-  <div class="container">
-    <div class="row header">
-      <!-- name -->
-      <div class="col-md-8 col-md-offset-1">  
-        <h1>Elijah Pinson</h1>
-      </div>
-    </div>
-      
-    <div class="row">
-      <!-- contact/social media/resume -->
-      <div class="col-md-8 col-md-offset-1">  
-        <!--<a href="https://linkedin.com/in/berwinxie">linkedin</a> |--> 
-        <a href="https://github.com/elijah-pinson">Github</a> 
-      </div>
+    <div class="container">
+        <div class="row header">
+            <!-- name -->
+            <div class="col-md-8 col-md-offset-1">
+                <h1>Elijah Pinson</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- contact/social media/resume -->
+            <div class="col-md-8 col-md-offset-1">
+                <!--<a href="https://linkedin.com/in/berwinxie">linkedin</a> |-->
+                <a href="https://github.com/elijah-pinson">Github</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- who am i -->
+            <div class="col-md-8 col-md-offset-1">
+                Self-improvement oriented
+            </div>
+        </div>
+
+        <div class="row projects">
+            <!-- projects list -->
+            <div class="projects-list col-sm-12 col-md-2 col-md-offset-1">
+                <div class="projects-li active" id="li-rw" onClick="showProject('rw')">Redirected Walking</div>
+                <div class="projects-li" id="li-apdef" onClick="showProject('apdef')">Aphid Defense</div>
+                <div class="projects-li" id="li-boids" onClick="showProject('boids')">item 3</div>
+                <div class="projects-li" id="li-scooter" onClick="showProject('scooter')">item 4</div>
+            </div>
+
+            <!-- project area -->
+            <div class="projects-area col-sm-12 col-md-8">
+                <div class="projects-project active" id="project-rw">
+                    <h2>Redirected Walking</h2>
+                    <div class="projects-img"><img src="assets/img/redwalking.jpg" alt="Elijah walking in a Vive Pro headset"></div>
+                    <h4>Elijah Pinson, Krzysztof Pietroszek, Qi Sun, Christian Eckhardt - 2020</h4>
+                    <h3>Project Description</h3>
+                    <p>
+                        In this project we created an expandable framework for allowing infinite walking in virtual reality in a closed play area by measuring saccades and redirect the user to stay within the area.
+                        A saccade is a rapid eye movement with a unique property: the eye temporarily gathers reduced information -- saccadic suppression. We leverage the suppression to redirect the user’s walking
+                        towards the center of the play area by rotating the virtual world around the camera’s location. There are plans to release the source code.
+                    </p>
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>
+                            Unity 3D
+                        </li>
+                        <li>
+                            C#
+                        </li>
+                        <li>
+                            HTC Vive Pro Eye
+                        </li>
+                    </ul>
+                </div>
+                <div class="projects-project" id="project-apdef">
+                    <h2>Aphid Defense</h2>
+                    <div class="projects-img"><img src="assets/img/aphiddef.png" alt="Game view of ladybug on the plant"></div>
+                    <h4>Elijah Pinson, Eric Babajanian, Zoë Wood - Spring 2020</h4>
+                    <h3>Project Description</h3>
+                    <p>
+                        Ever wondered what a day in the life of a ladybug is like? Well, now you can find out! In Aphid Defense,
+                        face off against an endless hoard of aphids as they try to consume your beloved sunflower. You must defend
+                        all 3 leaves of the flower and devour any aphids that climb on them. If you let two leaves wither away,
+                        game over. It's time to fight fire with fire and eat them first before it's too late! Good luck!
+                    </p>
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>
+                            C++
+                        </li>
+                        <li>
+                            OpenGL
+                        </li>
+                        <li>
+                            3D environment with multiple movement types (and the ability to switch between them).
+                        </li>
+                        <li>
+                            Entity-component system that allows for standardization of objects and functions, while avoiding a class hierarchy blob.
+                        </li>
+                        <li>
+                            Background music and sound effects on collisions
+                        </li>
+                        <li>
+                            Free moving, 3rd-person perspective camera
+                        </li>
+                        <li>
+                            Hierarchical animation
+                        </li>
+                        <li>
+                            Bounding sphere collisions
+                            <ul>
+                                <li>change aphid movement direction when hitting walls</li>
+                                <li>change player movement when entering / exiting a leaf</li>
+                                <li>consume an aphid (for score) or powerup (for benefits)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Dynamic shadow mapping
+                        </li>
+                        <li>
+                            View frustum culling
+                        </li>
+                        <li>
+                            Specialized rendering:
+                            <ul>
+                                <li>non-photo realistic toon shading</li>
+                                <li>normal mapping on powerups</li>
+                            </ul>
+                        </li>
+                        <li>
+                            HUD displays powerup duration and leaves' health percentages
+                        </li>
+                        <li>
+                            Particle effects play on powerup and aphid collisions with the player
+                        </li>
+                        <li>Skybox</li>
+                    </ul>
+                </div>
+                <div class="projects-project" id="project-boids">
+                    <div class="projects-img"><img src="" alt="Image unavailable."></div>
+                    <h4>date</h4>
+                    <p>description</p>
+                </div>
+                <div class="projects-project" id="project-scooter">
+                    <div class="projects-img"><img src="" alt="Image unavailable."></div>
+                    <h4>date</h4>
+                    <p>description</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <!-- who am i -->
-      <div class="col-md-8 col-md-offset-1">  
-        Self-improvement oriented
-      </div>
-    </div>
-
-    <div class="row projects">
-      <!-- projects list -->
-      <div class="projects-list col-sm-12 col-md-2 col-md-offset-1">
-        <div class="projects-li active" id="li-rw" onClick="showProject('rw')">Redirected Walking</div>
-        <div class="projects-li" id="li-piano" onClick="showProject('piano')">item 2</div>
-        <div class="projects-li" id="li-boids" onClick="showProject('boids')">item 3</div>
-        <div class="projects-li" id="li-scooter" onClick="showProject('scooter')">item 4</div>
-      </div>
-
-      <!-- project area -->
-      <div class="projects-area col-sm-12 col-md-8"> 
-        <div class="projects-project active" id="project-rw">
-          <div class="projects-img"><img src="assets/img/redwalking.jpg" alt="Image unavailable."></div>
-          <h4>2020</h4>
-          <p>In this project we created an expandable framework for allowing infinite walking in virtual reality in a closed play area by measuring saccades and redirect the user to stay within the area. A saccade is a rapid eye movement with a unique property: the eye temporarily gathers reduced information -- saccadic suppression. We leverage the suppression to redirect the user’s walking towards the center of the play area by rotating the virtual world around the camera’s location.</p>
-        </div>
-        <div class="projects-project" id="project-piano">
-          <div class="projects-img"><img src="" alt="Image unavailable."></div>
-          <h4>date</h4>
-          <p>description</p>
-        </div>
-        <div class="projects-project" id="project-boids">
-          <div class="projects-img"><img src="" alt="Image unavailable."></div>
-          <h4>date</h4>
-          <p>description</p>  
-        </div>
-        <div class="projects-project" id="project-scooter">
-          <div class="projects-img"><img src="" alt="Image unavailable."></div>
-          <h4>date</h4>
-          <p>description</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script src="assets/lib/jquery/dist/jquery.min.js"></script>
-  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="assets/script.js"></script>
+    <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
